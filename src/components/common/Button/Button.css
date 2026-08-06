@@ -1,0 +1,104 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 22px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 650;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base),
+    border-color var(--transition-base),
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.button--primary {
+  background: var(--color-primary);
+  color: var(--color-text-light);
+  box-shadow: 0 12px 28px rgba(230, 0, 35, 0.22);
+}
+
+.button--primary:hover {
+  background: var(--color-primary-hover);
+  box-shadow: 0 16px 34px rgba(230, 0, 35, 0.28);
+}
+
+.button--secondary {
+  background: var(--color-secondary);
+  color: var(--color-text-light);
+  box-shadow: 0 12px 28px rgba(22, 70, 163, 0.2);
+}
+
+.button--secondary:hover {
+  background: var(--color-secondary-hover);
+}
+
+.button--outline {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border-strong);
+}
+
+.button--outline:hover {
+  background: var(--color-surface);
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
+}
+
+.button--ghost {
+  /* avoid 'min-height: auto' for older Firefox compatibility */
+  min-height: 0;
+  padding: 8px 10px;
+  background: transparent;
+  color: var(--color-text-secondary);
+}
+
+.button--ghost:hover {
+  color: var(--color-primary);
+  transform: none;
+}
+
+.button--small {
+  min-height: 40px;
+  padding-inline: 18px;
+  font-size: 0.88rem;
+}
+
+.button--large {
+  min-height: 54px;
+  padding-inline: 28px;
+  font-size: 1rem;
+}
+
+.button__icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: 1.05rem;
+  transition: transform var(--transition-base);
+}
+
+.button:hover .button__icon {
+  transform: translateX(3px);
+}
+
+@media (max-width: 520px) {
+  .button--large {
+    min-height: 50px;
+    padding-inline: 22px;
+  }
+}
