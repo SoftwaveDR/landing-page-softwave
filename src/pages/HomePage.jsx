@@ -1,5 +1,13 @@
 import Header from "../components/layout/Header/Header";
+import Footer from "../components/layout/Footer/Footer";
+
 import Hero from "../components/sections/Hero/Hero";
+import Services from "../components/sections/Services/Services";
+import Solutions from "../components/sections/Solutions/Solutions";
+import Methodology from "../components/sections/Methodology/Methodology";
+import About from "../components/sections/About/About";
+import Contact from "../components/sections/Contact/Contact";
+
 
 function HomePage() {
   return (
@@ -9,36 +17,18 @@ function HomePage() {
       <main>
         <Hero />
 
-        <section className="section" id="servicios">
-          <div className="container">
-            <h2>Servicios Softwave</h2>
-          </div>
-        </section>
+        <Services />
 
-        <section className="section section--soft" id="soluciones">
-          <div className="container">
-            <h2>Soluciones empresariales</h2>
-          </div>
-        </section>
+        <Solutions />
 
-        <section className="section" id="metodologia">
-          <div className="container">
-            <h2>Cómo trabajamos</h2>
-          </div>
-        </section>
+        <Methodology />
 
-        <section className="section section--soft" id="nosotros">
-          <div className="container">
-            <h2>Sobre Softwave</h2>
-          </div>
-        </section>
+        <About />
 
-        <section className="section" id="contacto">
-          <div className="container">
-            <h2>Contacto</h2>
-          </div>
-        </section>
+        <Contact />
       </main>
+
+      <Footer />
     </div>
   );
 }

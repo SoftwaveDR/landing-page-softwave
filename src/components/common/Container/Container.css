@@ -1,10 +1,128 @@
+/* ==========================================================================
+   SOFTWAVE — CONTAINER
+   Design System Component
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. BASE
+   ========================================================================== */
+
 .container {
-  width: min(calc(100% - 40px), var(--container-width));
-  margin-inline: auto;
+  width: calc(
+    100% -
+    (
+      var(--page-padding-desktop) *
+      2
+    )
+  );
+
+  max-width:
+    var(--container-width);
+
+  margin-inline:
+    auto;
 }
 
-@media (max-width: 640px) {
+
+/* ==========================================================================
+   2. SIZES
+   ========================================================================== */
+
+/*
+ * Narrow:
+ * contenido editorial, FAQ, texto largo, formularios.
+ */
+
+.container--narrow {
+  max-width:
+    var(--container-readable);
+}
+
+
+/*
+ * Default:
+ * layout principal.
+ */
+
+.container--default {
+  max-width:
+    var(--container-width);
+}
+
+
+/*
+ * Wide:
+ * Hero, dashboards, composiciones visuales grandes.
+ */
+
+.container--wide {
+  max-width:
+    var(--container-wide);
+}
+
+
+/*
+ * Fluid:
+ * permite ocupar todo el ancho disponible,
+ * pero mantiene el padding horizontal del sistema.
+ */
+
+.container--fluid {
+  max-width:
+    none;
+}
+
+
+/* ==========================================================================
+   3. TABLET
+   ========================================================================== */
+
+@media (
+  max-width: 1024px
+) {
   .container {
-    width: min(calc(100% - 28px), var(--container-width));
+    width: calc(
+      100% -
+      (
+        var(--page-padding-tablet) *
+        2
+      )
+    );
+  }
+}
+
+
+/* ==========================================================================
+   4. MOBILE
+   ========================================================================== */
+
+@media (
+  max-width: 640px
+) {
+  .container {
+    width: calc(
+      100% -
+      (
+        var(--page-padding-mobile) *
+        2
+      )
+    );
+  }
+}
+
+
+/* ==========================================================================
+   5. VERY SMALL DEVICES
+   ========================================================================== */
+
+@media (
+  max-width: 380px
+) {
+  .container {
+    width: calc(
+      100% -
+      28px
+    );
   }
 }

@@ -1,104 +1,664 @@
+/* ==========================================================================
+   SOFTWAVE — BUTTON
+   Design System Component
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. BASE
+   ========================================================================== */
+
 .button {
+  position: relative;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  min-height: 46px;
-  padding: 0 22px;
-  border: 1px solid transparent;
-  border-radius: var(--radius-pill);
-  font-size: 0.95rem;
-  font-weight: 650;
-  line-height: 1;
-  white-space: nowrap;
+
+  gap: var(--space-3);
+
+  min-height: 48px;
+
+  padding-inline:
+    var(--space-6);
+
+  overflow: hidden;
+
+  border:
+    1px solid transparent;
+
+  border-radius:
+    var(--radius-button);
+
+  font-family:
+    var(--font-primary);
+
+  font-size:
+    0.9375rem;
+
+  font-weight:
+    var(--font-weight-semibold);
+
+  line-height:
+    1;
+
+  letter-spacing:
+    -0.012em;
+
+  white-space:
+    nowrap;
+
+  cursor:
+    pointer;
+
+  user-select:
+    none;
+
+  -webkit-user-select:
+    none;
+
+  isolation:
+    isolate;
+
   transition:
-    background-color var(--transition-base),
-    color var(--transition-base),
-    border-color var(--transition-base),
-    transform var(--transition-base),
-    box-shadow var(--transition-base);
+    var(--transition-interactive);
 }
 
-.button:hover {
-  transform: translateY(-2px);
+
+/* ==========================================================================
+   2. BUTTON LABEL
+   ========================================================================== */
+
+.button__label {
+  position:
+    relative;
+
+  z-index:
+    2;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
 }
 
-.button:active {
-  transform: translateY(0);
-}
 
-.button--primary {
-  background: var(--color-primary);
-  color: var(--color-text-light);
-  box-shadow: 0 12px 28px rgba(230, 0, 35, 0.22);
-}
-
-.button--primary:hover {
-  background: var(--color-primary-hover);
-  box-shadow: 0 16px 34px rgba(230, 0, 35, 0.28);
-}
-
-.button--secondary {
-  background: var(--color-secondary);
-  color: var(--color-text-light);
-  box-shadow: 0 12px 28px rgba(22, 70, 163, 0.2);
-}
-
-.button--secondary:hover {
-  background: var(--color-secondary-hover);
-}
-
-.button--outline {
-  background: transparent;
-  color: var(--color-text);
-  border-color: var(--color-border-strong);
-}
-
-.button--outline:hover {
-  background: var(--color-surface);
-  border-color: var(--color-secondary);
-  color: var(--color-secondary);
-}
-
-.button--ghost {
-  /* avoid 'min-height: auto' for older Firefox compatibility */
-  min-height: 0;
-  padding: 8px 10px;
-  background: transparent;
-  color: var(--color-text-secondary);
-}
-
-.button--ghost:hover {
-  color: var(--color-primary);
-  transform: none;
-}
-
-.button--small {
-  min-height: 40px;
-  padding-inline: 18px;
-  font-size: 0.88rem;
-}
-
-.button--large {
-  min-height: 54px;
-  padding-inline: 28px;
-  font-size: 1rem;
-}
+/* ==========================================================================
+   3. ICON
+   ========================================================================== */
 
 .button__icon {
-  display: inline-flex;
-  flex: 0 0 auto;
-  font-size: 1.05rem;
-  transition: transform var(--transition-base);
+  position:
+    relative;
+
+  z-index:
+    2;
+
+  display:
+    inline-flex;
+
+  flex:
+    0 0 auto;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  font-size:
+    1.05rem;
+
+  line-height:
+    1;
+
+  transition:
+    transform
+    var(--duration-base)
+    var(--ease-enter);
 }
 
-.button:hover .button__icon {
-  transform: translateX(3px);
+
+.button__icon svg {
+  display:
+    block;
+
+  width:
+    1em;
+
+  height:
+    1em;
 }
 
-@media (max-width: 520px) {
+
+/* ==========================================================================
+   4. PRIMARY
+   ========================================================================== */
+
+/*
+ * El botón primario utiliza el gradiente principal de Softwave.
+ * Debe reservarse para la acción de mayor importancia.
+ */
+
+.button--primary {
+  border-color:
+    rgba(
+      var(--color-primary-rgb),
+      0.16
+    );
+
+  background:
+    var(--gradient-brand-horizontal);
+
+  color:
+    var(--color-text-light);
+
+  box-shadow:
+    0 8px 20px
+    rgba(
+      var(--color-primary-rgb),
+      0.14
+    ),
+    0 18px 38px
+    rgba(
+      var(--color-primary-rgb),
+      0.12
+    );
+}
+
+
+/*
+ * Capa de brillo controlada.
+ */
+
+.button--primary::before {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  inset:
+    1px;
+
+  z-index:
+    0;
+
+  border-radius:
+    calc(
+      var(--radius-button) -
+      2px
+    );
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(
+        255,
+        255,
+        255,
+        0.13
+      ),
+      transparent 55%
+    );
+
+  pointer-events:
+    none;
+}
+
+
+/*
+ * Luz dinámica sutil.
+ */
+
+.button--primary::after {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  top:
+    -100%;
+
+  left:
+    -35%;
+
+  width:
+    32%;
+
+  height:
+    300%;
+
+  z-index:
+    1;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(
+        255,
+        255,
+        255,
+        0.22
+      ),
+      transparent
+    );
+
+  transform:
+    rotate(20deg);
+
+  opacity:
+    0;
+
+  pointer-events:
+    none;
+
+  transition:
+    left
+      560ms
+      var(--ease-smooth),
+    opacity
+      var(--duration-fast)
+      var(--ease-standard);
+}
+
+
+@media (
+  hover: hover
+) and (
+  pointer: fine
+) {
+  .button--primary:hover {
+    border-color:
+      rgba(
+        var(--color-primary-rgb),
+        0.22
+      );
+
+    box-shadow:
+      0 10px 24px
+      rgba(
+        var(--color-primary-rgb),
+        0.18
+      ),
+      0 24px 52px
+      rgba(
+        var(--color-primary-rgb),
+        0.15
+      );
+
+    transform:
+      translateY(-2px);
+  }
+
+
+  .button--primary:hover::after {
+    left:
+      115%;
+
+    opacity:
+      1;
+  }
+}
+
+
+/* ==========================================================================
+   5. SECONDARY
+   ========================================================================== */
+
+/*
+ * CTA de contraste corporativo.
+ * Navy sólido, no otro gradiente.
+ */
+
+.button--secondary {
+  border-color:
+    var(--color-secondary);
+
+  background:
+    var(--color-secondary);
+
+  color:
+    var(--color-text-light);
+
+  box-shadow:
+    0 8px 18px
+    rgba(
+      var(--color-secondary-rgb),
+      0.12
+    ),
+    0 16px 34px
+    rgba(
+      var(--color-secondary-rgb),
+      0.1
+    );
+}
+
+
+@media (
+  hover: hover
+) and (
+  pointer: fine
+) {
+  .button--secondary:hover {
+    border-color:
+      var(--color-secondary-hover);
+
+    background:
+      var(--color-secondary-hover);
+
+    box-shadow:
+      0 10px 22px
+      rgba(
+        var(--color-secondary-rgb),
+        0.16
+      ),
+      0 22px 44px
+      rgba(
+        var(--color-secondary-rgb),
+        0.12
+      );
+
+    transform:
+      translateY(-2px);
+  }
+}
+
+
+/* ==========================================================================
+   6. OUTLINE
+   ========================================================================== */
+
+/*
+ * Acción secundaria del Hero.
+ * Debe sentirse premium pero discreta.
+ */
+
+.button--outline {
+  border-color:
+    var(--color-border-strong);
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.72
+    );
+
+  color:
+    var(--color-text-primary);
+
+  box-shadow:
+    0 1px 2px
+    var(--alpha-dark-04);
+
+  backdrop-filter:
+    blur(10px);
+
+  -webkit-backdrop-filter:
+    blur(10px);
+}
+
+
+@media (
+  hover: hover
+) and (
+  pointer: fine
+) {
+  .button--outline:hover {
+    border-color:
+      var(--color-border-brand);
+
+    background:
+      var(--color-primary-soft);
+
+    color:
+      var(--color-primary);
+
+    box-shadow:
+      0 8px 24px
+      var(--alpha-primary-08);
+
+    transform:
+      translateY(-2px);
+  }
+}
+
+
+/* ==========================================================================
+   7. GHOST
+   ========================================================================== */
+
+.button--ghost {
+  min-height:
+    40px;
+
+  padding-inline:
+    var(--space-3);
+
+  border-color:
+    transparent;
+
+  background:
+    transparent;
+
+  color:
+    var(--color-text-secondary);
+
+  box-shadow:
+    none;
+}
+
+
+@media (
+  hover: hover
+) and (
+  pointer: fine
+) {
+  .button--ghost:hover {
+    background:
+      var(--color-primary-soft);
+
+    color:
+      var(--color-primary);
+
+    transform:
+      none;
+  }
+}
+
+
+/* ==========================================================================
+   8. SIZES
+   ========================================================================== */
+
+.button--small {
+  min-height:
+    40px;
+
+  padding-inline:
+    var(--space-5);
+
+  border-radius:
+    10px;
+
+  font-size:
+    var(--font-size-sm);
+
+  gap:
+    var(--space-2);
+}
+
+
+.button--default {
+  min-height:
+    48px;
+
+  padding-inline:
+    var(--space-6);
+}
+
+
+.button--large {
+  min-height:
+    56px;
+
+  padding-inline:
+    var(--space-7);
+
+  border-radius:
+    14px;
+
+  font-size:
+    1rem;
+
+  gap:
+    var(--space-3);
+}
+
+
+/* ==========================================================================
+   9. ICON MOTION
+   ========================================================================== */
+
+@media (
+  hover: hover
+) and (
+  pointer: fine
+) {
+  .button:hover
+  .button__icon--right {
+    transform:
+      translateX(3px);
+  }
+
+
+  .button:hover
+  .button__icon--left {
+    transform:
+      translateX(-2px);
+  }
+}
+
+
+/* ==========================================================================
+   10. ACTIVE
+   ========================================================================== */
+
+.button:active:not(
+  :disabled
+) {
+  transform:
+    translateY(0)
+    scale(0.985);
+
+  transition-duration:
+    var(--duration-instant);
+}
+
+
+/* ==========================================================================
+   11. FOCUS
+   ========================================================================== */
+
+.button:focus-visible {
+  outline:
+    none;
+
+  box-shadow:
+    var(--focus-ring),
+    var(--shadow-sm);
+}
+
+
+.button--primary:focus-visible {
+  box-shadow:
+    var(--focus-ring),
+    var(--shadow-primary);
+}
+
+
+/* ==========================================================================
+   12. DISABLED
+   ========================================================================== */
+
+.button:disabled,
+.button--disabled {
+  cursor:
+    not-allowed;
+
+  opacity:
+    0.52;
+
+  box-shadow:
+    none;
+
+  transform:
+    none;
+
+  pointer-events:
+    none;
+}
+
+
+/* ==========================================================================
+   13. MOBILE
+   ========================================================================== */
+
+@media (
+  max-width: 640px
+) {
+  .button {
+    min-height:
+      46px;
+
+    padding-inline:
+      var(--space-5);
+  }
+
+
   .button--large {
-    min-height: 50px;
-    padding-inline: 22px;
+    min-height:
+      52px;
+
+    padding-inline:
+      var(--space-6);
+
+    font-size:
+      0.96875rem;
+  }
+}
+
+
+/* ==========================================================================
+   14. REDUCED MOTION
+   ========================================================================== */
+
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
+  .button,
+  .button__icon,
+  .button::after {
+    transition:
+      none !important;
+  }
+
+
+  .button:hover,
+  .button:active {
+    transform:
+      none !important;
+  }
+
+
+  .button--primary::after {
+    display:
+      none;
   }
 }

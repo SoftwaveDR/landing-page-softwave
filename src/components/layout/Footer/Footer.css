@@ -1,0 +1,1258 @@
+/* ==========================================================================
+   SOFTWAVE — FOOTER
+   Institutional Closing / Luminous Glass
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. FOOTER
+   ========================================================================== */
+
+.footer {
+  position: relative;
+
+  overflow: hidden;
+
+  padding:
+    clamp(
+      68px,
+      7vw,
+      96px
+    )
+    0
+    28px;
+
+  background:
+    var(--color-surface-darker);
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.72
+    );
+}
+
+
+/* ==========================================================================
+   2. BACKGROUND ATMOSPHERE
+   ========================================================================== */
+
+.footer::before {
+  content: "";
+
+  position: absolute;
+
+  top: -280px;
+  right: -190px;
+
+  width: 560px;
+  height: 560px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(
+        var(--color-violet-rgb),
+        0.15
+      ),
+      transparent 68%
+    );
+
+  pointer-events: none;
+}
+
+
+.footer::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: -320px;
+  left: -250px;
+
+  width: 620px;
+  height: 620px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(
+        var(--color-cyan-rgb),
+        0.11
+      ),
+      transparent 68%
+    );
+
+  pointer-events: none;
+}
+
+
+.footer__container {
+  position: relative;
+
+  z-index: 2;
+}
+
+
+/* ==========================================================================
+   3. TOP GRID
+   ========================================================================== */
+
+.footer__top {
+  display: grid;
+
+  grid-template-columns:
+    minmax(310px, 1.5fr)
+    minmax(145px, 0.58fr)
+    minmax(220px, 0.82fr)
+    minmax(240px, 0.9fr);
+
+  gap:
+    clamp(
+      42px,
+      5vw,
+      76px
+    );
+
+  align-items: start;
+}
+
+
+/* ==========================================================================
+   4. BRAND
+   ========================================================================== */
+
+.footer__brand {
+  position: relative;
+
+  max-width: 410px;
+
+  isolation: isolate;
+}
+
+
+/*
+ * Halo luminoso general de marca.
+ * No pulsa ni genera efecto neon agresivo.
+ */
+
+.footer__brand::before {
+  content: "";
+
+  position: absolute;
+
+  top: -42px;
+  left: -52px;
+
+  z-index: -2;
+
+  width: 320px;
+  height: 220px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 38% 50%,
+      rgba(
+        var(--color-cyan-rgb),
+        0.2
+      ) 0%,
+      rgba(
+        var(--color-primary-rgb),
+        0.11
+      ) 36%,
+      rgba(
+        var(--color-violet-rgb),
+        0.065
+      ) 56%,
+      transparent 76%
+    );
+
+  filter: blur(20px);
+
+  pointer-events: none;
+}
+
+
+/*
+ * Halo secundario suave debajo del logo.
+ */
+
+.footer__brand::after {
+  content: "";
+
+  position: absolute;
+
+  top: 12px;
+  left: 48px;
+
+  z-index: -1;
+
+  width: 190px;
+  height: 110px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(
+      var(--color-primary-rgb),
+      0.08
+    );
+
+  filter: blur(34px);
+
+  pointer-events: none;
+}
+
+
+/* ==========================================================================
+   5. LOGO PROTECTION SURFACE
+   ========================================================================== */
+
+.footer__logo-link {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 220px;
+  height: 82px;
+
+  overflow: hidden;
+
+  padding: 0;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.18
+    );
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(
+        255,
+        255,
+        255,
+        0.995
+      ),
+      rgba(
+        248,
+        250,
+        255,
+        0.96
+      )
+    );
+
+  box-shadow:
+    0 16px 38px
+    rgba(
+      0,
+      0,
+      0,
+      0.18
+    ),
+
+    0 0 34px
+    rgba(
+      var(--color-cyan-rgb),
+      0.11
+    ),
+
+    0 0 58px
+    rgba(
+      var(--color-violet-rgb),
+      0.07
+    ),
+
+    inset
+    0 1px 0
+    rgba(
+      255,
+      255,
+      255,
+      0.95
+    );
+
+  isolation: isolate;
+
+  transition:
+    transform
+      var(--transition-base),
+    border-color
+      var(--transition-base),
+    box-shadow
+      var(--transition-base);
+}
+
+
+/*
+ * Light sweep interno.
+ */
+
+.footer__logo-link::before {
+  content: "";
+
+  position: absolute;
+
+  top: -45%;
+  left: -35%;
+
+  z-index: 1;
+
+  width: 42%;
+  height: 190%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(
+        255,
+        255,
+        255,
+        0.8
+      ),
+      transparent
+    );
+
+  opacity: 0.38;
+
+  transform:
+    rotate(18deg);
+
+  pointer-events: none;
+
+  transition:
+    left
+      var(--transition-slow),
+    opacity
+      var(--transition-base);
+}
+
+
+/*
+ * Glow cyan/violet interno.
+ */
+
+.footer__logo-link::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+
+  background:
+    radial-gradient(
+      circle at 15% 85%,
+      rgba(
+        var(--color-cyan-rgb),
+        0.1
+      ),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 88% 15%,
+      rgba(
+        var(--color-violet-rgb),
+        0.075
+      ),
+      transparent 40%
+    );
+
+  pointer-events: none;
+}
+
+
+/* ==========================================================================
+   6. LOGO
+   ========================================================================== */
+
+.footer__logo {
+  position: relative;
+
+  z-index: 2;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  max-width: none;
+
+  object-fit: contain;
+
+  object-position: center;
+
+  /*
+   * El PNG posee espacio interno.
+   * El scale amplía la marca real sin aumentar la placa.
+   */
+
+  transform:
+    scale(2.15);
+
+  transform-origin:
+    center;
+
+  pointer-events: none;
+}
+
+
+/* ==========================================================================
+   7. LOGO HOVER
+   ========================================================================== */
+
+@media (
+  hover: hover
+) and (
+  pointer: fine
+) {
+  .footer__logo-link:hover {
+    border-color:
+      rgba(
+        var(--color-primary-rgb),
+        0.3
+      );
+
+    transform:
+      translateY(-3px);
+
+    box-shadow:
+      0 22px 50px
+      rgba(
+        0,
+        0,
+        0,
+        0.24
+      ),
+
+      0 0 42px
+      rgba(
+        var(--color-cyan-rgb),
+        0.16
+      ),
+
+      0 0 72px
+      rgba(
+        var(--color-violet-rgb),
+        0.11
+      ),
+
+      inset
+      0 1px 0
+      rgba(
+        255,
+        255,
+        255,
+        0.98
+      );
+  }
+
+
+  .footer__logo-link:hover::before {
+    left: 120%;
+
+    opacity: 0.62;
+  }
+}
+
+
+/* ==========================================================================
+   8. BRAND DESCRIPTION
+   ========================================================================== */
+
+.footer__brand-description {
+  max-width: 385px;
+
+  margin-top: 30px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.52
+    );
+
+  font-size: 0.84rem;
+
+  line-height: 1.72;
+}
+
+
+/* ==========================================================================
+   9. PRIMARY LINK
+   ========================================================================== */
+
+.footer__primary-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-top: 26px;
+
+  color: #ffffff;
+
+  font-size: 0.82rem;
+
+  font-weight:
+    var(--font-weight-semibold);
+
+  transition:
+    gap
+      var(--transition-base),
+    color
+      var(--transition-fast);
+}
+
+
+.footer__primary-link svg {
+  width: 16px;
+  height: 16px;
+
+  color: #9cafff;
+
+  transition:
+    transform
+      var(--transition-base);
+}
+
+
+@media (
+  hover: hover
+) and (
+  pointer: fine
+) {
+  .footer__primary-link:hover {
+    gap: 12px;
+
+    color: #c8d0ff;
+  }
+
+
+  .footer__primary-link:hover svg {
+    transform:
+      translate(
+        2px,
+        -2px
+      );
+  }
+}
+
+
+/* ==========================================================================
+   10. COLUMNS
+   ========================================================================== */
+
+.footer__column {
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+.footer__column-title {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.84
+    );
+
+  font-size: 0.66rem;
+
+  font-weight:
+    var(--font-weight-bold);
+
+  letter-spacing: 0.09em;
+
+  text-transform: uppercase;
+}
+
+
+/* ==========================================================================
+   11. NAVIGATION
+   ========================================================================== */
+
+.footer__navigation {
+  margin-top: 22px;
+}
+
+
+.footer__navigation ul {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+
+.footer__navigation a {
+  position: relative;
+
+  display: inline-flex;
+
+  width: fit-content;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.48
+    );
+
+  font-size: 0.79rem;
+
+  font-weight:
+    var(--font-weight-medium);
+
+  transition:
+    color
+      var(--transition-fast),
+    transform
+      var(--transition-fast);
+}
+
+
+.footer__navigation a::before {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  left: -12px;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background:
+    var(--gradient-brand);
+
+  opacity: 0;
+
+  transform:
+    translateY(-50%)
+    scale(0.5);
+
+  transition:
+    opacity
+      var(--transition-fast),
+    transform
+      var(--transition-fast);
+}
+
+
+@media (
+  hover: hover
+) and (
+  pointer: fine
+) {
+  .footer__navigation a:hover {
+    color: #ffffff;
+
+    transform:
+      translateX(5px);
+  }
+
+
+  .footer__navigation a:hover::before {
+    opacity: 1;
+
+    transform:
+      translateY(-50%)
+      scale(1);
+  }
+}
+
+
+/* ==========================================================================
+   12. CONTACT
+   ========================================================================== */
+
+.footer__contact {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
+
+  margin-top: 22px;
+}
+
+
+.footer__contact-item {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 11px;
+
+  width: fit-content;
+}
+
+
+.footer__contact-icon {
+  display: grid;
+
+  width: 34px;
+  height: 34px;
+
+  flex: 0 0 auto;
+
+  place-items: center;
+
+  border:
+    1px solid
+    rgba(
+      var(--color-primary-rgb),
+      0.2
+    );
+
+  border-radius: 10px;
+
+  background:
+    rgba(
+      var(--color-primary-rgb),
+      0.1
+    );
+
+  color: #a6b4ff;
+
+  font-size: 0.76rem;
+
+  box-shadow:
+    0 0 20px
+    rgba(
+      var(--color-primary-rgb),
+      0.045
+    );
+
+  transition:
+    border-color
+      var(--transition-fast),
+    background-color
+      var(--transition-fast),
+    box-shadow
+      var(--transition-base);
+}
+
+
+.footer__contact-item > span:last-child {
+  display: flex;
+
+  min-width: 0;
+
+  flex-direction: column;
+}
+
+
+.footer__contact-item small {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.3
+    );
+
+  font-size: 0.56rem;
+}
+
+
+.footer__contact-item strong {
+  margin-top: 3px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.74
+    );
+
+  font-size: 0.7rem;
+
+  font-weight:
+    var(--font-weight-medium);
+
+  line-height: 1.45;
+
+  transition:
+    color
+      var(--transition-fast);
+}
+
+
+@media (
+  hover: hover
+) and (
+  pointer: fine
+) {
+  a.footer__contact-item:hover
+  .footer__contact-icon {
+    border-color:
+      rgba(
+        var(--color-primary-rgb),
+        0.34
+      );
+
+    background:
+      rgba(
+        var(--color-primary-rgb),
+        0.15
+      );
+
+    box-shadow:
+      0 0 24px
+      rgba(
+        var(--color-primary-rgb),
+        0.1
+      );
+  }
+
+
+  a.footer__contact-item:hover strong {
+    color: #ffffff;
+  }
+}
+
+
+/* ==========================================================================
+   13. PHILOSOPHY
+   ========================================================================== */
+
+.footer__philosophy {
+  max-width: 310px;
+
+  margin-top: 22px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.48
+    );
+
+  font-size: 0.77rem;
+
+  line-height: 1.68;
+}
+
+
+.footer__principles {
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 20px;
+}
+
+
+.footer__principles span {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.54
+    );
+
+  font-size: 0.59rem;
+
+  font-weight:
+    var(--font-weight-medium);
+}
+
+
+.footer__principles i {
+  width: 13px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(
+        var(--color-cyan-rgb),
+        0.6
+      ),
+      rgba(
+        var(--color-violet-rgb),
+        0.6
+      )
+    );
+
+  box-shadow:
+    0 0 10px
+    rgba(
+      var(--color-primary-rgb),
+      0.08
+    );
+}
+
+
+/* ==========================================================================
+   14. DIVIDER
+   ========================================================================== */
+
+.footer__divider {
+  width: 100%;
+  height: 1px;
+
+  margin:
+    clamp(
+      50px,
+      6vw,
+      72px
+    )
+    0
+    25px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(
+        255,
+        255,
+        255,
+        0.03
+      ),
+      rgba(
+        var(--color-cyan-rgb),
+        0.1
+      ) 34%,
+      rgba(
+        var(--color-violet-rgb),
+        0.1
+      ) 66%,
+      rgba(
+        255,
+        255,
+        255,
+        0.03
+      )
+    );
+
+  box-shadow:
+    0 0 16px
+    rgba(
+      var(--color-primary-rgb),
+      0.025
+    );
+}
+
+
+/* ==========================================================================
+   15. BOTTOM
+   ========================================================================== */
+
+.footer__bottom {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 24px;
+}
+
+
+.footer__bottom p {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.32
+    );
+
+  font-size: 0.62rem;
+}
+
+
+.footer__bottom-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+.footer__bottom-links a,
+.footer__bottom-links span {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.32
+    );
+
+  font-size: 0.62rem;
+}
+
+
+.footer__bottom-links a {
+  transition:
+    color
+      var(--transition-fast);
+}
+
+
+.footer__bottom-links a:hover {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.82
+    );
+}
+
+
+/* ==========================================================================
+   16. SMALL DESKTOP
+   ========================================================================== */
+
+@media (
+  max-width: 1080px
+) {
+  .footer__top {
+    grid-template-columns:
+      minmax(
+        280px,
+        1.25fr
+      )
+      minmax(
+        140px,
+        0.65fr
+      )
+      minmax(
+        220px,
+        0.8fr
+      );
+
+    gap:
+      48px
+      42px;
+  }
+
+
+  .footer__column--philosophy {
+    grid-column:
+      1 / -1;
+
+    max-width:
+      620px;
+  }
+
+
+  .footer__philosophy {
+    max-width:
+      560px;
+  }
+}
+
+
+/* ==========================================================================
+   17. TABLET
+   ========================================================================== */
+
+@media (
+  max-width: 820px
+) {
+  .footer__top {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(
+          0,
+          1fr
+        )
+      );
+  }
+
+
+  .footer__brand {
+    max-width:
+      480px;
+  }
+
+
+  .footer__column--philosophy {
+    grid-column:
+      auto;
+  }
+}
+
+
+/* ==========================================================================
+   18. MOBILE
+   ========================================================================== */
+
+@media (
+  max-width: 640px
+) {
+  .footer {
+    padding-top: 58px;
+  }
+
+
+  .footer__top {
+    grid-template-columns:
+      1fr;
+
+    gap: 40px;
+  }
+
+
+  .footer__brand,
+  .footer__philosophy {
+    max-width: none;
+  }
+
+
+  .footer__brand::before {
+    top: -30px;
+    left: -38px;
+
+    width: 270px;
+    height: 185px;
+
+    opacity: 0.85;
+  }
+
+
+  .footer__logo-link {
+    width: 200px;
+    height: 76px;
+
+    border-radius: 14px;
+
+    box-shadow:
+      0 14px 34px
+      rgba(
+        0,
+        0,
+        0,
+        0.18
+      ),
+
+      0 0 28px
+      rgba(
+        var(--color-cyan-rgb),
+        0.1
+      ),
+
+      0 0 46px
+      rgba(
+        var(--color-violet-rgb),
+        0.06
+      );
+  }
+
+
+  .footer__logo {
+    transform:
+      scale(2.1);
+  }
+
+
+  .footer__brand-description {
+    margin-top: 26px;
+  }
+
+
+  .footer__bottom {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 13px;
+  }
+}
+
+
+/* ==========================================================================
+   19. VERY SMALL MOBILE
+   ========================================================================== */
+
+@media (
+  max-width: 380px
+) {
+  .footer__logo-link {
+    width: 185px;
+    height: 70px;
+  }
+
+
+  .footer__logo {
+    transform:
+      scale(2);
+  }
+}
+
+
+/* ==========================================================================
+   20. REDUCED MOTION
+   ========================================================================== */
+
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
+  .footer__logo-link,
+  .footer__logo-link::before,
+  .footer__navigation a,
+  .footer__navigation a::before,
+  .footer__primary-link,
+  .footer__primary-link svg,
+  .footer__contact-icon,
+  .footer__contact-item strong {
+    transition:
+      none !important;
+  }
+
+
+  .footer__logo-link:hover,
+  .footer__navigation a:hover {
+    transform:
+      none !important;
+  }
+
+
+  .footer__logo-link:hover::before {
+    left: -35%;
+  }
+}

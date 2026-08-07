@@ -1,50 +1,648 @@
-:root {
-  --color-primary: #e60023;
-  --color-primary-hover: #c9001e;
-  --color-primary-dark: #a80019;
-  --color-primary-soft: #fff0f3;
-  --color-primary-border: #ffc5cf;
+/* ==========================================================================
+   SOFTWAVE — DESIGN TOKENS
+   Version: 1.0
+   Purpose:
+   Base visual system for the Softwave corporate landing page.
 
-  --color-secondary: #1646a3;
-  --color-secondary-hover: #10377f;
-  --color-secondary-dark: #0b2455;
-  --color-secondary-soft: #edf4ff;
+   Brand direction:
+   Cyan → Electric Blue → Indigo/Violet
+   Deep Navy
+   White / Cool Neutral Surfaces
+   ========================================================================== */
+
+:root {
+  /* ==========================================================================
+     1. BRAND — PRIMARY
+     ========================================================================== */
+
+  /*
+   * Color dominante de interacción.
+   * Se deriva de la zona azul del isotipo Softwave.
+   */
+  --color-primary: #4f6df5;
+  --color-primary-hover: #4058dc;
+  --color-primary-active: #3548c1;
+  --color-primary-dark: #29399f;
+
+  --color-primary-soft: #f1f4ff;
+  --color-primary-subtle: #e7ebff;
+  --color-primary-border: #cfd7ff;
+
+  --color-primary-rgb: 79, 109, 245;
+
+
+  /* ==========================================================================
+     2. BRAND — CYAN
+     ========================================================================== */
+
+  /*
+   * Parte tecnológica/fresca del gradiente Softwave.
+   * Ideal para integraciones, automatización y visualización de datos.
+   */
+  --color-cyan: #31bfd6;
+  --color-cyan-hover: #22a9c1;
+  --color-cyan-dark: #16879e;
+
+  --color-cyan-soft: #ecfbfd;
+  --color-cyan-subtle: #d8f6fa;
+  --color-cyan-border: #b8edf4;
+
+  --color-cyan-rgb: 49, 191, 214;
+
+
+  /* ==========================================================================
+     3. BRAND — VIOLET
+     ========================================================================== */
+
+  /*
+   * Utilizado como acento secundario.
+   * Nunca debe dominar grandes superficies.
+   */
+  --color-violet: #7166f5;
+  --color-violet-hover: #6256e4;
+  --color-violet-dark: #5144c7;
+
+  --color-violet-soft: #f4f2ff;
+  --color-violet-subtle: #ebe8ff;
+  --color-violet-border: #d8d2ff;
+
+  --color-violet-rgb: 113, 102, 245;
+
+
+  /* ==========================================================================
+     4. SECONDARY / NAVY
+     ========================================================================== */
+
+  /*
+   * Azul oscuro estructural.
+   * Utilizar para:
+   * - títulos
+   * - dashboards
+   * - footer
+   * - superficies tecnológicas oscuras
+   */
+  --color-secondary: #152238;
+  --color-secondary-hover: #101b2d;
+  --color-secondary-active: #0c1523;
+  --color-secondary-dark: #08101c;
+
+  --color-secondary-soft: #f2f5f9;
+  --color-secondary-subtle: #e8edf4;
+  --color-secondary-border: #d6dee9;
+
+  --color-secondary-rgb: 21, 34, 56;
+
+
+  /* ==========================================================================
+     5. BRAND GRADIENTS
+     ========================================================================== */
+
+  /*
+   * Gradiente principal tomado del lenguaje visual del isotipo.
+   */
+  --gradient-brand: linear-gradient(
+    135deg,
+    #31bfd6 0%,
+    #4f8bf5 42%,
+    #626df8 70%,
+    #7166f5 100%
+  );
+
+  --gradient-brand-horizontal: linear-gradient(
+    90deg,
+    #31bfd6 0%,
+    #4f8bf5 46%,
+    #7166f5 100%
+  );
+
+  --gradient-brand-reverse: linear-gradient(
+    135deg,
+    #7166f5 0%,
+    #4f6df5 50%,
+    #31bfd6 100%
+  );
+
+  --gradient-brand-soft: linear-gradient(
+    135deg,
+    rgba(49, 191, 214, 0.08) 0%,
+    rgba(79, 109, 245, 0.07) 52%,
+    rgba(113, 102, 245, 0.08) 100%
+  );
+
+  --gradient-brand-subtle: linear-gradient(
+    135deg,
+    rgba(49, 191, 214, 0.05),
+    rgba(79, 109, 245, 0.045),
+    rgba(113, 102, 245, 0.05)
+  );
+
+
+  /* ==========================================================================
+     6. HERO BACKGROUNDS
+     ========================================================================== */
+
+  --gradient-hero:
+    radial-gradient(
+      circle at 8% 22%,
+      rgba(49, 191, 214, 0.11),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 88% 16%,
+      rgba(79, 109, 245, 0.1),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 76% 82%,
+      rgba(113, 102, 245, 0.07),
+      transparent 32%
+    ),
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #fbfcff 52%,
+      #f7f9fd 100%
+    );
+
+  --gradient-hero-dark:
+    radial-gradient(
+      circle at 18% 16%,
+      rgba(49, 191, 214, 0.15),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 84% 20%,
+      rgba(113, 102, 245, 0.19),
+      transparent 36%
+    ),
+    linear-gradient(
+      145deg,
+      #17243a 0%,
+      #101b2e 52%,
+      #08101c 100%
+    );
+
+  --gradient-dashboard: linear-gradient(
+    145deg,
+    #17253d 0%,
+    #111e32 52%,
+    #091221 100%
+  );
+
+  --gradient-dashboard-glow:
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(49, 191, 214, 0.14),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 78% 20%,
+      rgba(113, 102, 245, 0.18),
+      transparent 34%
+    );
+
+
+  /* ==========================================================================
+     7. BACKGROUNDS
+     ========================================================================== */
 
   --color-background: #ffffff;
-  --color-surface: #f7f9fc;
-  --color-surface-alt: #eef2f7;
-  --color-surface-dark: #111827;
 
-  --color-text: #172033;
-  --color-text-secondary: #4f5d73;
-  --color-text-muted: #7a8799;
+  --color-background-soft: #fafbfe;
+  --color-background-muted: #f5f7fb;
+
+  --color-surface: #ffffff;
+  --color-surface-raised: #ffffff;
+
+  --color-surface-soft: #f8faff;
+  --color-surface-alt: #f2f5fa;
+
+  --color-surface-dark: #152238;
+  --color-surface-darker: #0c1626;
+
+  --color-surface-glass: rgba(255, 255, 255, 0.76);
+  --color-surface-glass-strong: rgba(255, 255, 255, 0.9);
+
+
+  /* ==========================================================================
+     8. TEXT
+     ========================================================================== */
+
+  /*
+   * Evitamos negro puro.
+   * Produce una lectura más elegante y corporativa.
+   */
+
+  --color-text: #162033;
+  --color-text-primary: #162033;
+
+  --color-text-secondary: #526078;
+  --color-text-muted: #7f8ba0;
+  --color-text-subtle: #a5afbe;
+
   --color-text-light: #ffffff;
+  --color-text-inverse: #ffffff;
 
-  --color-border: #e3e8ef;
-  --color-border-strong: #cfd7e3;
+  --color-text-brand: #4f6df5;
 
-  --color-success: #16865c;
-  --color-warning: #b66a00;
-  --color-error: #c62828;
+
+  /* ==========================================================================
+     9. BORDERS
+     ========================================================================== */
+
+  --color-border: #e5eaf1;
+  --color-border-soft: rgba(21, 34, 56, 0.06);
+  --color-border-strong: #ced6e2;
+
+  --color-divider: #e7ebf1;
+
+  --color-border-brand: rgba(79, 109, 245, 0.24);
+
+  --color-border-cyan: rgba(49, 191, 214, 0.26);
+
+  --color-border-violet: rgba(113, 102, 245, 0.24);
+
+
+  /* ==========================================================================
+     10. STATUS COLORS
+     ========================================================================== */
+
+  --color-success: #11a36a;
+  --color-success-hover: #0d8958;
+  --color-success-soft: #eafaf3;
+
+  --color-warning: #d58a13;
+  --color-warning-hover: #b6710d;
+  --color-warning-soft: #fff8e9;
+
+  --color-error: #dc4c55;
+  --color-error-hover: #bf3740;
+  --color-error-soft: #fff0f1;
+
+  --color-info: #3c7be8;
+  --color-info-hover: #2e65c6;
+  --color-info-soft: #eef5ff;
+
+
+  /* ==========================================================================
+     11. ALPHA COLORS
+     ========================================================================== */
+
+  --alpha-primary-04: rgba(79, 109, 245, 0.04);
+  --alpha-primary-06: rgba(79, 109, 245, 0.06);
+  --alpha-primary-08: rgba(79, 109, 245, 0.08);
+  --alpha-primary-12: rgba(79, 109, 245, 0.12);
+  --alpha-primary-16: rgba(79, 109, 245, 0.16);
+  --alpha-primary-24: rgba(79, 109, 245, 0.24);
+
+  --alpha-cyan-06: rgba(49, 191, 214, 0.06);
+  --alpha-cyan-10: rgba(49, 191, 214, 0.1);
+  --alpha-cyan-16: rgba(49, 191, 214, 0.16);
+
+  --alpha-violet-06: rgba(113, 102, 245, 0.06);
+  --alpha-violet-10: rgba(113, 102, 245, 0.1);
+  --alpha-violet-16: rgba(113, 102, 245, 0.16);
+
+  --alpha-dark-04: rgba(21, 34, 56, 0.04);
+  --alpha-dark-06: rgba(21, 34, 56, 0.06);
+  --alpha-dark-08: rgba(21, 34, 56, 0.08);
+  --alpha-dark-12: rgba(21, 34, 56, 0.12);
+  --alpha-dark-16: rgba(21, 34, 56, 0.16);
+  --alpha-dark-24: rgba(21, 34, 56, 0.24);
+  --alpha-dark-40: rgba(21, 34, 56, 0.4);
+
+  --alpha-white-06: rgba(255, 255, 255, 0.06);
+  --alpha-white-08: rgba(255, 255, 255, 0.08);
+  --alpha-white-12: rgba(255, 255, 255, 0.12);
+  --alpha-white-16: rgba(255, 255, 255, 0.16);
+  --alpha-white-24: rgba(255, 255, 255, 0.24);
+  --alpha-white-60: rgba(255, 255, 255, 0.6);
+  --alpha-white-80: rgba(255, 255, 255, 0.8);
+
+
+  /* ==========================================================================
+     12. TYPOGRAPHY
+     ========================================================================== */
 
   --font-primary:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
     sans-serif;
 
-  --container-width: 1180px;
-  --header-height: 78px;
+  --font-mono:
+    "JetBrains Mono",
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
 
-  --radius-sm: 8px;
+  /*
+   * Fluid typography.
+   */
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-md: 1.125rem;
+  --font-size-lg: 1.25rem;
+
+  --font-size-h4: clamp(1.25rem, 2vw, 1.5rem);
+
+  --font-size-h3: clamp(
+    1.625rem,
+    2.6vw,
+    2.25rem
+  );
+
+  --font-size-h2: clamp(
+    2rem,
+    3.6vw,
+    3.25rem
+  );
+
+  --font-size-h1: clamp(
+    2.75rem,
+    5vw,
+    4.75rem
+  );
+
+  --font-size-display: clamp(
+    3rem,
+    5.8vw,
+    5.5rem
+  );
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  --line-height-tight: 1.06;
+  --line-height-snug: 1.2;
+  --line-height-base: 1.5;
+  --line-height-relaxed: 1.7;
+
+  --letter-spacing-tight: -0.045em;
+  --letter-spacing-heading: -0.035em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.04em;
+  --letter-spacing-eyebrow: 0.1em;
+
+
+  /* ==========================================================================
+     13. LAYOUT
+     ========================================================================== */
+
+  /*
+   * 1280px permite un Hero más amplio que el actual de 1180px.
+   * Sigue siendo seguro para laptops.
+   */
+
+  --container-width: 1280px;
+  --container-wide: 1440px;
+  --container-readable: 720px;
+
+  --page-padding-desktop: 32px;
+  --page-padding-tablet: 24px;
+  --page-padding-mobile: 18px;
+
+  --header-height: 78px;
+  --header-height-mobile: 68px;
+
+
+  /* ==========================================================================
+     14. SPACING
+     ========================================================================== */
+
+  --space-0: 0;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-14: 56px;
+  --space-16: 64px;
+
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-28: 112px;
+  --space-32: 128px;
+
+  --section-padding: clamp(
+    72px,
+    8vw,
+    120px
+  );
+
+  --section-padding-compact: clamp(
+    56px,
+    6vw,
+    88px
+  );
+
+  --section-padding-large: clamp(
+    88px,
+    10vw,
+    152px
+  );
+
+
+  /* ==========================================================================
+     15. BORDER RADIUS
+     ========================================================================== */
+
+  /*
+   * Curvas modernas pero sin exagerar.
+   */
+
+  --radius-xs: 6px;
+  --radius-sm: 10px;
   --radius-md: 14px;
-  --radius-lg: 24px;
-  --radius-xl: 32px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-2xl: 36px;
+
   --radius-pill: 999px;
 
-  --shadow-sm: 0 4px 18px rgba(24, 34, 48, 0.06);
-  --shadow-md: 0 14px 40px rgba(24, 34, 48, 0.1);
-  --shadow-lg: 0 28px 75px rgba(24, 34, 48, 0.15);
+  --radius-button: 12px;
+  --radius-card: 20px;
+  --radius-dashboard: 24px;
 
-  --transition-fast: 160ms ease;
-  --transition-base: 240ms ease;
-  --transition-slow: 420ms ease;
+
+  /* ==========================================================================
+     16. SHADOWS
+     ========================================================================== */
+
+  /*
+   * Sin sombras negras agresivas.
+   */
+
+  --shadow-xs:
+    0 1px 2px
+    rgba(21, 34, 56, 0.04);
+
+  --shadow-sm:
+    0 2px 6px
+    rgba(21, 34, 56, 0.04),
+    0 8px 20px
+    rgba(21, 34, 56, 0.05);
+
+  --shadow-md:
+    0 6px 16px
+    rgba(21, 34, 56, 0.06),
+    0 18px 42px
+    rgba(21, 34, 56, 0.08);
+
+  --shadow-lg:
+    0 12px 28px
+    rgba(21, 34, 56, 0.07),
+    0 30px 72px
+    rgba(21, 34, 56, 0.11);
+
+  --shadow-xl:
+    0 18px 36px
+    rgba(21, 34, 56, 0.08),
+    0 44px 100px
+    rgba(21, 34, 56, 0.14);
+
+  --shadow-primary:
+    0 10px 26px
+    rgba(79, 109, 245, 0.18),
+    0 22px 50px
+    rgba(79, 109, 245, 0.12);
+
+  --shadow-cyan:
+    0 10px 28px
+    rgba(49, 191, 214, 0.16);
+
+  --shadow-violet:
+    0 10px 28px
+    rgba(113, 102, 245, 0.16);
+
+  --shadow-dashboard:
+    0 18px 50px
+    rgba(21, 34, 56, 0.12),
+    0 42px 110px
+    rgba(21, 34, 56, 0.13);
+
+
+  /* ==========================================================================
+     17. GLASS
+     ========================================================================== */
+
+  --glass-background: rgba(
+    255,
+    255,
+    255,
+    0.78
+  );
+
+  --glass-background-strong: rgba(
+    255,
+    255,
+    255,
+    0.9
+  );
+
+  --glass-border: rgba(
+    255,
+    255,
+    255,
+    0.7
+  );
+
+  --glass-blur: blur(20px)
+    saturate(145%);
+
+
+  /* ==========================================================================
+     18. FOCUS
+     ========================================================================== */
+
+  --focus-ring:
+    0 0 0 4px
+    rgba(79, 109, 245, 0.14);
+
+  --focus-ring-cyan:
+    0 0 0 4px
+    rgba(49, 191, 214, 0.14);
+
+
+  /* ==========================================================================
+     19. MOTION
+     ========================================================================== */
+
+  --duration-instant: 80ms;
+  --duration-fast: 160ms;
+  --duration-base: 240ms;
+  --duration-medium: 320ms;
+  --duration-slow: 440ms;
+  --duration-reveal: 680ms;
+
+  --ease-standard:
+    cubic-bezier(0.2, 0, 0, 1);
+
+  --ease-enter:
+    cubic-bezier(0.16, 1, 0.3, 1);
+
+  --ease-exit:
+    cubic-bezier(0.7, 0, 0.84, 0);
+
+  --ease-smooth:
+    cubic-bezier(0.22, 1, 0.36, 1);
+
+  --transition-fast:
+    var(--duration-fast)
+    var(--ease-standard);
+
+  --transition-base:
+    var(--duration-base)
+    var(--ease-standard);
+
+  --transition-slow:
+    var(--duration-slow)
+    var(--ease-smooth);
+
+  --transition-interactive:
+    transform
+      var(--duration-base)
+      var(--ease-enter),
+    box-shadow
+      var(--duration-base)
+      var(--ease-standard),
+    border-color
+      var(--duration-fast)
+      var(--ease-standard),
+    background-color
+      var(--duration-fast)
+      var(--ease-standard),
+    color
+      var(--duration-fast)
+      var(--ease-standard);
+
+
+  /* ==========================================================================
+     20. Z-INDEX
+     ========================================================================== */
+
+  --z-base: 1;
+  --z-raised: 10;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-header: 300;
+  --z-overlay: 400;
+  --z-modal: 500;
+  --z-toast: 600;
 }
