@@ -1,10 +1,6 @@
 name: Deploy Softwave Landing
 
 on:
-  push:
-    branches:
-      - Pre-produccion-landing
-
   workflow_dispatch:
 
 permissions:
