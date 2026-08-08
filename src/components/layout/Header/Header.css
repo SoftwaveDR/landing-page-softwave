@@ -526,19 +526,22 @@
 
   .header__navigation {
     position:
-      fixed;
+      absolute;
 
     top:
-      var(--header-height);
+      100%;
 
     right:
       0;
 
     bottom:
-      0;
+      auto;
 
     left:
       0;
+
+    height:
+      calc(100dvh - var(--header-height));
 
     z-index:
       calc(
@@ -869,10 +872,10 @@
 
   .header__logo {
     height:
-      85px;
+      180px;
 
     max-width:
-      154px;
+      140px;
   }
 
 

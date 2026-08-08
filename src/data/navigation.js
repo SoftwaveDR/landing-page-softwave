@@ -5,24 +5,24 @@ export const navigationItems = [
     href: "#inicio",
   },
   {
-    id: "servicios",
-    label: "Servicios",
-    href: "#servicios",
+    id: "get-code",
+    label: "Get Code",
+    href: "#get-code",
   },
   {
-    id: "soluciones",
-    label: "Soluciones",
-    href: "#soluciones",
+    id: "modulos",
+    label: "Módulos",
+    href: "#modulos",
+  },
+  {
+    id: "servicios",
+    label: "Softwave",
+    href: "#servicios",
   },
   {
     id: "metodologia",
     label: "Cómo trabajamos",
     href: "#metodologia",
-  },
-  {
-    id: "nosotros",
-    label: "Nosotros",
-    href: "#nosotros",
   },
   {
     id: "contacto",

@@ -1,269 +1,77 @@
 import {
-  FiArrowUpRight,
+  FiArrowRight,
   FiBarChart2,
-  FiCloud,
   FiCode,
-  FiCpu,
-  FiDatabase,
-  FiGrid,
-  FiLayers,
+  FiLink,
   FiSettings,
 } from "react-icons/fi";
 
+import Button from "../../common/Button/Button";
 import Container from "../../common/Container/Container";
-
 import "./Services.css";
-
 
 const services = [
   {
-    id: "software",
     number: "01",
-    icon: <FiCode />,
-    title: "Desarrollo de software empresarial",
-    description:
-      "Diseñamos aplicaciones y plataformas a la medida para digitalizar operaciones críticas, centralizar información y escalar procesos de negocio.",
-    features: [
-      "Aplicaciones web empresariales",
-      "Portales internos y externos",
-      "Plataformas SaaS",
-    ],
-    accent: "primary",
+    icon: FiSettings,
+    title: "Configuración y personalización",
+    description: "Adaptamos Get Code a tus reglas, roles, nomenclaturas y procesos sin perder la lógica de una plataforma mantenible.",
+    tags: ["Flujos", "Reglas", "Permisos"],
   },
   {
-    id: "automation",
     number: "02",
-    icon: <FiCpu />,
-    title: "Automatización de procesos",
-    description:
-      "Transformamos tareas manuales y repetitivas en flujos digitales conectados que reducen tiempos, errores y dependencia operativa.",
-    features: [
-      "Workflows empresariales",
-      "Integraciones entre sistemas",
-      "Procesos inteligentes",
-    ],
-    accent: "cyan",
+    icon: FiLink,
+    title: "Integraciones empresariales",
+    description: "Conectamos servicios, fuentes de datos y sistemas existentes para que la información avance sin reprocesos.",
+    tags: ["APIs", "Sistemas", "Datos"],
   },
   {
-    id: "data",
     number: "03",
-    icon: <FiBarChart2 />,
-    title: "Datos, BI y analítica",
-    description:
-      "Convertimos datos dispersos en información útil para comprender la operación, anticipar riesgos y tomar decisiones con mayor precisión.",
-    features: [
-      "Dashboards ejecutivos",
-      "Indicadores operacionales",
-      "Modelos de información",
-    ],
-    accent: "violet",
-  },
-  {
-    id: "architecture",
-    number: "04",
-    icon: <FiLayers />,
-    title: "Arquitectura e integración",
-    description:
-      "Diseñamos ecosistemas tecnológicos preparados para conectar aplicaciones, servicios y fuentes de información de manera segura y escalable.",
-    features: [
-      "APIs e integraciones",
-      "Arquitectura modular",
-      "Modernización tecnológica",
-    ],
-    accent: "secondary",
+    icon: FiBarChart2,
+    title: "Analítica y evolución",
+    description: "Transformamos la actividad de la plataforma en indicadores y mejoras continuas para la operación.",
+    tags: ["Dashboards", "KPIs", "Roadmap"],
   },
 ];
-
-
-const capabilities = [
-  {
-    icon: <FiDatabase />,
-    label: "Datos centralizados",
-  },
-  {
-    icon: <FiCloud />,
-    label: "Arquitectura escalable",
-  },
-  {
-    icon: <FiGrid />,
-    label: "Sistemas conectados",
-  },
-  {
-    icon: <FiSettings />,
-    label: "Procesos automatizados",
-  },
-];
-
 
 function Services() {
   return (
-    <section
-      className="services section"
-      id="servicios"
-      aria-labelledby="services-title"
-    >
-      {/* ================================================================
-          BACKGROUND
-          ================================================================ */}
-
-      <div
-        className="services__background"
-        aria-hidden="true"
-      >
-        <span className="services__glow services__glow--left" />
-        <span className="services__glow services__glow--right" />
-        <span className="services__grid" />
-      </div>
-
-
-      <Container
-        size="wide"
-        className="services__container"
-      >
-        {/* ================================================================
-            HEADER
-            ================================================================ */}
-
-        <div className="services__header">
+    <section className="services section" id="servicios" aria-labelledby="services-title">
+      <Container className="services__container">
+        <header className="services__header">
+          <div>
+            <span className="services__eyebrow"><FiCode /> Softwave detrás de Get Code</span>
+            <h2 id="services-title">Una plataforma sólida. Un equipo que la adapta a tu realidad.</h2>
+          </div>
           <div className="services__header-copy">
-            <span className="services__eyebrow">
-              <span className="services__eyebrow-dot" />
-              Capacidades Softwave
-            </span>
-
-            <h2
-              className="services__title"
-              id="services-title"
-            >
-              Tecnología diseñada para{" "}
-              <span>
-                resolver desafíos reales
-              </span>
-            </h2>
-          </div>
-
-          <div className="services__header-description">
             <p>
-              Construimos soluciones digitales que conectan personas,
-              procesos y datos para convertir operaciones complejas en
-              sistemas más simples, medibles y escalables.
+              Get Code es el núcleo. Softwave aporta el análisis, la ingeniería
+              y el acompañamiento para convertirlo en una solución alineada con
+              tu operación.
             </p>
-
-            <a
-              href="#soluciones"
-              className="services__header-link"
-            >
-              Explorar soluciones
-
-              <FiArrowUpRight aria-hidden="true" />
-            </a>
+            <Button href="#contacto" variant="outline" icon={<FiArrowRight />}>
+              Conversar con Softwave
+            </Button>
           </div>
-        </div>
+        </header>
 
-
-        {/* ================================================================
-            SERVICE GRID
-            ================================================================ */}
-
-        <div className="services__grid-layout">
-          {services.map((service) => (
-            <article
-              key={service.id}
-              className={[
-                "services__card",
-                `services__card--${service.accent}`,
-              ].join(" ")}
-            >
-              <div className="services__card-top">
-                <span className="services__card-number">
-                  {service.number}
-                </span>
-
-                <span
-                  className="services__card-icon"
-                  aria-hidden="true"
-                >
-                  {service.icon}
-                </span>
+        <div className="services__grid">
+          {services.map(({ number, icon: Icon, title, description, tags }) => (
+            <article className="service-card" key={number}>
+              <div className="service-card__top">
+                <span><Icon aria-hidden="true" /></span>
+                <small>{number}</small>
               </div>
-
-
-              <div className="services__card-content">
-                <h3>
-                  {service.title}
-                </h3>
-
-                <p>
-                  {service.description}
-                </p>
-
-
-                <ul className="services__card-features">
-                  {service.features.map((feature) => (
-                    <li key={feature}>
-                      <span
-                        className="services__feature-marker"
-                        aria-hidden="true"
-                      />
-
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-
-              <a
-                href="#contacto"
-                className="services__card-action"
-                aria-label={`Conocer más sobre ${service.title}`}
-              >
-                <span>
-                  Conocer más
-                </span>
-
-                <FiArrowUpRight aria-hidden="true" />
-              </a>
+              <h3>{title}</h3>
+              <p>{description}</p>
+              <div>{tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
             </article>
           ))}
         </div>
 
-
-        {/* ================================================================
-            CAPABILITY STRIP
-            ================================================================ */}
-
-        <div className="services__capabilities">
-          <div className="services__capabilities-copy">
-            <span>
-              Una misma visión tecnológica
-            </span>
-
-            <strong>
-              De la necesidad al sistema operativo real.
-            </strong>
-          </div>
-
-
-          <div className="services__capabilities-list">
-            {capabilities.map((capability) => (
-              <div
-                className="services__capability"
-                key={capability.label}
-              >
-                <span
-                  className="services__capability-icon"
-                  aria-hidden="true"
-                >
-                  {capability.icon}
-                </span>
-
-                <span>
-                  {capability.label}
-                </span>
-              </div>
-            ))}
-          </div>
+        <div className="services__promise">
+          <span>Producto + acompañamiento</span>
+          <strong>No entregamos una herramienta aislada: conectamos Get Code con el resultado que tu operación necesita.</strong>
         </div>
       </Container>
     </section>

@@ -1,0 +1,108 @@
+import {
+  FiActivity,
+  FiAlertCircle,
+  FiBarChart2,
+  FiBell,
+  FiBriefcase,
+  FiCheckCircle,
+  FiClipboard,
+  FiClock,
+  FiFileText,
+  FiShoppingCart,
+  FiTrendingUp,
+  FiUsers,
+} from "react-icons/fi";
+
+export const getCodeCategories = [
+  { id: "all", label: "Todos" },
+  { id: "management", label: "Gestión" },
+  { id: "workflow", label: "Flujos" },
+  { id: "intelligence", label: "Inteligencia" },
+];
+
+export const getCodeModules = [
+  {
+    id: "operaciones",
+    name: "Operaciones",
+    category: "management",
+    icon: FiActivity,
+    description: "Coordina tareas, responsables, estados y evidencias desde una vista operativa común.",
+  },
+  {
+    id: "compras",
+    name: "Compras",
+    category: "management",
+    icon: FiShoppingCart,
+    description: "Ordena requerimientos, cotizaciones, proveedores y decisiones de compra con trazabilidad.",
+  },
+  {
+    id: "rrhh",
+    name: "RRHH",
+    category: "management",
+    icon: FiUsers,
+    description: "Centraliza información, solicitudes y procesos clave de gestión del talento.",
+  },
+  {
+    id: "administracion",
+    name: "Administración",
+    category: "management",
+    icon: FiBriefcase,
+    description: "Conecta la gestión administrativa con el resto de la operación y sus responsables.",
+  },
+  {
+    id: "solicitudes",
+    name: "Solicitudes",
+    category: "workflow",
+    icon: FiClipboard,
+    description: "Digitaliza solicitudes internas con formularios, estados y responsables definidos.",
+  },
+  {
+    id: "aprobaciones",
+    name: "Aprobaciones",
+    category: "workflow",
+    icon: FiCheckCircle,
+    description: "Configura rutas de aprobación por monto, área, rol o cualquier regla del negocio.",
+  },
+  {
+    id: "notificaciones",
+    name: "Notificaciones",
+    category: "workflow",
+    icon: FiBell,
+    description: "Mantén a cada persona informada con avisos oportunos dentro del flujo de trabajo.",
+  },
+  {
+    id: "sla",
+    name: "SLA",
+    category: "workflow",
+    icon: FiClock,
+    description: "Define tiempos de atención, identifica retrasos y protege los compromisos operativos.",
+  },
+  {
+    id: "dashboards",
+    name: "Dashboards",
+    category: "intelligence",
+    icon: FiBarChart2,
+    description: "Visualiza la operación en paneles claros para equipos, líderes y dirección.",
+  },
+  {
+    id: "kpis",
+    name: "KPIs",
+    category: "intelligence",
+    icon: FiTrendingUp,
+    description: "Monitorea indicadores conectados directamente con los procesos que los generan.",
+  },
+  {
+    id: "alertas",
+    name: "Alertas",
+    category: "intelligence",
+    icon: FiAlertCircle,
+    description: "Detecta desviaciones y eventos críticos antes de que se conviertan en problemas mayores.",
+  },
+  {
+    id: "reporting",
+    name: "Reporting",
+    category: "intelligence",
+    icon: FiFileText,
+    description: "Genera reportes consistentes para seguimiento, auditoría y toma de decisiones.",
+  },
+];

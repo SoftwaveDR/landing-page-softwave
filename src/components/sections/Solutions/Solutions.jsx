@@ -1,332 +1,164 @@
+import { useMemo, useState } from "react";
 import {
-  FiArrowUpRight,
-  FiBriefcase,
-  FiCpu,
+  FiArrowRight,
+  FiCheck,
+  FiCloud,
   FiDatabase,
-  FiGrid,
-  FiLayers,
+  FiLink,
+  FiLock,
   FiRefreshCw,
   FiShield,
-  FiTrendingUp,
-  FiUsers,
+  FiSliders,
   FiZap,
 } from "react-icons/fi";
 
 import Button from "../../common/Button/Button";
 import Container from "../../common/Container/Container";
-
+import { getCodeCategories, getCodeModules } from "../../../data/getCodeModules";
 import "./Solutions.css";
 
-const solutions = [
-  {
-    id: "erp",
-    eyebrow: "Gestión empresarial",
-    title: "ERP y plataformas operativas",
-    description:
-      "Centralizamos procesos, áreas y datos en plataformas empresariales diseñadas alrededor de la operación real de cada organización.",
-    icon: <FiGrid />,
-    accent: "primary",
-    modules: [
-      "Operaciones",
-      "Compras",
-      "RRHH",
-      "Administración",
-    ],
-  },
-  {
-    id: "workflow",
-    eyebrow: "Automatización",
-    title: "Workflows y procesos digitales",
-    description:
-      "Convertimos procesos manuales en flujos trazables, medibles y automatizados con reglas de negocio, aprobaciones y alertas.",
-    icon: <FiRefreshCw />,
-    accent: "cyan",
-    modules: [
-      "Solicitudes",
-      "Aprobaciones",
-      "Notificaciones",
-      "SLA",
-    ],
-  },
-  {
-    id: "analytics",
-    eyebrow: "Business Intelligence",
-    title: "Analítica y control ejecutivo",
-    description:
-      "Diseñamos modelos de información que permiten monitorear indicadores, anticipar desviaciones y tomar decisiones basadas en datos.",
-    icon: <FiTrendingUp />,
-    accent: "violet",
-    modules: [
-      "Dashboards",
-      "KPIs",
-      "Alertas",
-      "Reporting",
-    ],
-  },
-];
-
-const architectureCapabilities = [
-  {
-    icon: <FiDatabase />,
-    title: "Información centralizada",
-    description:
-      "Una única fuente de información para reducir dispersión y duplicidad.",
-  },
-  {
-    icon: <FiLayers />,
-    title: "Arquitectura modular",
-    description:
-      "Sistemas preparados para crecer por módulos sin comprometer estabilidad.",
-  },
-  {
-    icon: <FiShield />,
-    title: "Control y trazabilidad",
-    description:
-      "Permisos, estados, historial y auditoría integrados en la operación.",
-  },
-  {
-    icon: <FiZap />,
-    title: "Automatización",
-    description:
-      "Menos tareas repetitivas y mayor velocidad de respuesta operativa.",
-  },
+const platformCapabilities = [
+  { icon: FiSliders, title: "Configurable", text: "Reglas, permisos y flujos se adaptan a tu operación." },
+  { icon: FiLink, title: "Integrable", text: "Conecta Get Code con las herramientas que ya utilizas." },
+  { icon: FiShield, title: "Trazable", text: "Estados, responsables e historial siempre disponibles." },
+  { icon: FiCloud, title: "Escalable", text: "Activa módulos y capacidades a medida que creces." },
 ];
 
 function Solutions() {
+  const [activeCategory, setActiveCategory] = useState("all");
+  const visibleModules = useMemo(
+    () => activeCategory === "all"
+      ? getCodeModules
+      : getCodeModules.filter((module) => module.category === activeCategory),
+    [activeCategory],
+  );
+
   return (
-    <section
-      className="solutions section"
-      id="soluciones"
-      aria-labelledby="solutions-title"
-    >
-      <div
-        className="solutions__background"
-        aria-hidden="true"
-      >
-        <span className="solutions__orb solutions__orb--one" />
-        <span className="solutions__orb solutions__orb--two" />
-        <span className="solutions__grid" />
-      </div>
-
-      <Container
-        size="wide"
-        className="solutions__container"
-      >
-        <header className="solutions__header">
-          <div className="solutions__heading">
-            <span className="solutions__eyebrow">
-              Soluciones empresariales
-            </span>
-
-            <h2 id="solutions-title">
-              Sistemas que convierten la operación en una{" "}
-              <span>ventaja competitiva</span>
+    <section className="get-code section" id="get-code" aria-labelledby="get-code-title">
+      <Container className="get-code__container">
+        <header className="get-code__header">
+          <div>
+            <span className="get-code__eyebrow">La plataforma empresarial de Softwave</span>
+            <h2 id="get-code-title">
+              Get Code convierte procesos dispersos en una
+              <span> operación conectada.</span>
             </h2>
           </div>
-
-          <div className="solutions__intro">
+          <div className="get-code__intro">
             <p>
-              No implementamos tecnología aislada. Diseñamos soluciones que
-              conectan procesos, personas y datos dentro de una arquitectura
-              capaz de evolucionar con el negocio.
+              Un ecosistema modular donde cada área trabaja con la misma
+              información, las reglas están claras y cada decisión deja rastro.
             </p>
-
-            <Button
-              href="#contacto"
-              variant="outline"
-              size="default"
-              icon={<FiArrowUpRight />}
-            >
-              Diseñar una solución
+            <Button href="#contacto" variant="secondary" icon={<FiArrowRight />}>
+              Ver Get Code en acción
             </Button>
           </div>
         </header>
 
-        <div className="solutions__layout">
-          <div className="solutions__cards">
-            {solutions.map((solution) => (
-              <article
-                key={solution.id}
-                className={[
-                  "solutions__card",
-                  `solutions__card--${solution.accent}`,
-                ].join(" ")}
+        <div className="get-code__story">
+          <div className="get-code__story-copy">
+            <span>Del caos operativo al control</span>
+            <h3>Menos herramientas aisladas. Más claridad para ejecutar.</h3>
+            <p>
+              Get Code une solicitudes, aprobaciones, operación, talento y
+              analítica dentro de un mismo flujo de información.
+            </p>
+            <ul>
+              <li><FiCheck /> Reduce duplicidad y seguimiento manual</li>
+              <li><FiCheck /> Define responsables, tiempos y reglas</li>
+              <li><FiCheck /> Convierte la actividad diaria en información útil</li>
+            </ul>
+          </div>
+
+          <div className="get-code__flow" aria-label="Flujo conectado de Get Code">
+            <div className="get-code__flow-node">
+              <FiRefreshCw />
+              <span><small>Entrada</small><strong>Solicitud</strong></span>
+              <i>01</i>
+            </div>
+            <div className="get-code__flow-line"><span /></div>
+            <div className="get-code__flow-node is-active">
+              <FiZap />
+              <span><small>Reglas</small><strong>Automatización</strong></span>
+              <i>02</i>
+            </div>
+            <div className="get-code__flow-line"><span /></div>
+            <div className="get-code__flow-node">
+              <FiDatabase />
+              <span><small>Resultado</small><strong>Información</strong></span>
+              <i>03</i>
+            </div>
+            <div className="get-code__flow-outcome">
+              <span>Resultado</span>
+              <strong>Control de punta a punta</strong>
+            </div>
+          </div>
+        </div>
+
+        <div className="modules" id="modulos">
+          <div className="modules__heading">
+            <div>
+              <span className="get-code__eyebrow">Ecosistema modular</span>
+              <h2>Todos los módulos de Get Code, una sola experiencia.</h2>
+            </div>
+            <p>
+              Comienza por el proceso más crítico y conecta nuevos módulos sin
+              fragmentar la información ni reconstruir tu operación.
+            </p>
+          </div>
+
+          <div className="modules__toolbar" role="toolbar" aria-label="Filtrar módulos">
+            {getCodeCategories.map((category) => (
+              <button
+                key={category.id}
+                type="button"
+                className={activeCategory === category.id ? "is-active" : ""}
+                onClick={() => setActiveCategory(category.id)}
+                aria-pressed={activeCategory === category.id}
               >
-                <div className="solutions__card-header">
-                  <span
-                    className="solutions__card-icon"
-                    aria-hidden="true"
-                  >
-                    {solution.icon}
-                  </span>
+                {category.label}
+                {category.id === "all" && <span>{getCodeModules.length}</span>}
+              </button>
+            ))}
+          </div>
 
-                  <span className="solutions__card-eyebrow">
-                    {solution.eyebrow}
-                  </span>
+          <div className="modules__grid" aria-live="polite">
+            {visibleModules.map(({ id, name, icon: Icon, description, category }) => (
+              <article className={`module-card module-card--${category}`} key={id}>
+                <div className="module-card__top">
+                  <span className="module-card__icon"><Icon aria-hidden="true" /></span>
+                  <span className="module-card__state"><i /> Conectado</span>
                 </div>
-
-                <h3>{solution.title}</h3>
-
-                <p>{solution.description}</p>
-
-                <div className="solutions__tags">
-                  {solution.modules.map((module) => (
-                    <span key={module}>
-                      {module}
-                    </span>
-                  ))}
-                </div>
-
-                <a
-                  href="#contacto"
-                  className="solutions__card-link"
-                  aria-label={`Hablar sobre ${solution.title}`}
-                >
-                  Explorar solución
-                  <FiArrowUpRight aria-hidden="true" />
+                <h3>{name}</h3>
+                <p>{description}</p>
+                <a href="#contacto" aria-label={`Solicitar una demo del módulo ${name}`}>
+                  Ver en una demo <FiArrowRight aria-hidden="true" />
                 </a>
               </article>
             ))}
           </div>
-
-          <aside className="solutions__experience">
-            <div className="solutions__experience-header">
-              <div>
-                <span>Softwave Architecture</span>
-                <strong>
-                  Un ecosistema conectado
-                </strong>
-              </div>
-
-              <span className="solutions__experience-status">
-                <i />
-                Operativo
-              </span>
-            </div>
-
-            <div
-              className="solutions__architecture"
-              aria-hidden="true"
-            >
-              <span className="solutions__connection solutions__connection--one" />
-              <span className="solutions__connection solutions__connection--two" />
-              <span className="solutions__connection solutions__connection--three" />
-              <span className="solutions__connection solutions__connection--four" />
-
-              <div className="solutions__architecture-center">
-                <span className="solutions__architecture-logo">
-                  <FiCpu />
-                </span>
-
-                <small>
-                  Softwave Core
-                </small>
-
-                <strong>
-                  Business Platform
-                </strong>
-              </div>
-
-              <div className="solutions__architecture-node solutions__architecture-node--operations">
-                <FiBriefcase />
-                <span>
-                  <small>Operación</small>
-                  <strong>Procesos</strong>
-                </span>
-              </div>
-
-              <div className="solutions__architecture-node solutions__architecture-node--people">
-                <FiUsers />
-                <span>
-                  <small>Personas</small>
-                  <strong>Gestión</strong>
-                </span>
-              </div>
-
-              <div className="solutions__architecture-node solutions__architecture-node--data">
-                <FiDatabase />
-                <span>
-                  <small>Datos</small>
-                  <strong>Inteligencia</strong>
-                </span>
-              </div>
-
-              <div className="solutions__architecture-node solutions__architecture-node--systems">
-                <FiLayers />
-                <span>
-                  <small>Sistemas</small>
-                  <strong>Integraciones</strong>
-                </span>
-              </div>
-            </div>
-
-            <div className="solutions__experience-footer">
-              <div>
-                <small>
-                  Arquitectura
-                </small>
-                <strong>
-                  Modular
-                </strong>
-              </div>
-
-              <div>
-                <small>
-                  Integración
-                </small>
-                <strong>
-                  API First
-                </strong>
-              </div>
-
-              <div>
-                <small>
-                  Evolución
-                </small>
-                <strong>
-                  Escalable
-                </strong>
-              </div>
-            </div>
-          </aside>
         </div>
 
-        <div className="solutions__capabilities">
-          <div className="solutions__capabilities-heading">
-            <span>
-              Diseñado para operación empresarial
-            </span>
-
-            <strong>
-              La tecnología debe simplificar la operación, no agregar
-              complejidad.
-            </strong>
-          </div>
-
-          <div className="solutions__capabilities-grid">
-            {architectureCapabilities.map((capability) => (
-              <article
-                className="solutions__capability"
-                key={capability.title}
-              >
-                <span
-                  className="solutions__capability-icon"
-                  aria-hidden="true"
-                >
-                  {capability.icon}
-                </span>
-
-                <div>
-                  <strong>
-                    {capability.title}
-                  </strong>
-
-                  <p>
-                    {capability.description}
-                  </p>
-                </div>
+        <div className="get-code__foundation">
+          <header>
+            <span className="get-code__eyebrow">Una base preparada para crecer</span>
+            <h2>El mismo control en cada módulo.</h2>
+          </header>
+          <div className="get-code__capabilities">
+            {platformCapabilities.map(({ icon: Icon, title, text }) => (
+              <article key={title}>
+                <Icon aria-hidden="true" />
+                <div><strong>{title}</strong><p>{text}</p></div>
               </article>
             ))}
+          </div>
+          <div className="get-code__security">
+            <FiLock aria-hidden="true" />
+            <div>
+              <span>Seguridad desde el diseño</span>
+              <strong>Roles, permisos, historial y trazabilidad en toda la plataforma.</strong>
+            </div>
+            <Button href="#contacto" variant="outline" icon={<FiArrowRight />}>Evaluar mi operación</Button>
           </div>
         </div>
       </Container>

@@ -313,8 +313,7 @@ function Header() {
 
             <div className="header__mobile-action">
               <span className="header__mobile-action-label">
-                ¿Tienes un proyecto
-                en mente?
+                ¿Quieres conocer Get Code?
               </span>
 
               <Button
@@ -326,7 +325,7 @@ function Header() {
                 }
                 onClick={closeMenu}
               >
-                Solicitar asesoría
+                Solicitar demo
               </Button>
             </div>
           </div>
@@ -344,7 +343,7 @@ function Header() {
               <FiArrowUpRight />
             }
           >
-            Solicitar asesoría
+            Solicitar demo
           </Button>
         </div>
 

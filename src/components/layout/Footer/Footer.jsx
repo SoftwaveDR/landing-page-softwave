@@ -13,20 +13,20 @@ import "./Footer.css";
 
 const footerLinks = [
   {
-    label: "Servicios",
-    href: "#servicios",
+    label: "Get Code",
+    href: "#get-code",
   },
   {
-    label: "Soluciones",
-    href: "#soluciones",
+    label: "Módulos",
+    href: "#modulos",
+  },
+  {
+    label: "Softwave",
+    href: "#servicios",
   },
   {
     label: "Cómo trabajamos",
     href: "#metodologia",
-  },
-  {
-    label: "Nosotros",
-    href: "#nosotros",
   },
 ];
 
@@ -59,9 +59,9 @@ function Footer() {
             </a>
 
             <p className="footer__brand-description">
-              Diseñamos soluciones digitales que conectan procesos,
-              personas y datos para transformar necesidades empresariales
-              en sistemas capaces de operar, crecer y generar valor.
+              Creamos Get Code para conectar procesos, personas y datos en
+              una plataforma empresarial modular, trazable y preparada para
+              crecer con cada operación.
             </p>
 
             <a
@@ -69,7 +69,7 @@ function Footer() {
               className="footer__primary-link"
             >
               <span>
-                Hablemos de tu necesidad
+                Solicita una demo de Get Code
               </span>
 
               <FiArrowUpRight aria-hidden="true" />
@@ -167,8 +167,8 @@ function Footer() {
             </span>
 
             <p className="footer__philosophy">
-              Comprender antes de construir, actuar con integridad y
-              entregar soluciones que respondan a la necesidad completa.
+              Get Code es el núcleo. Softwave aporta análisis, implementación
+              y evolución para conectarlo con el resultado que necesitas.
             </p>
 
             <div className="footer__principles">

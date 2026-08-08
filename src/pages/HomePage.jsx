@@ -5,7 +5,6 @@ import Hero from "../components/sections/Hero/Hero";
 import Services from "../components/sections/Services/Services";
 import Solutions from "../components/sections/Solutions/Solutions";
 import Methodology from "../components/sections/Methodology/Methodology";
-import About from "../components/sections/About/About";
 import Contact from "../components/sections/Contact/Contact";
 
 
@@ -17,13 +16,11 @@ function HomePage() {
       <main>
         <Hero />
 
-        <Services />
-
         <Solutions />
 
-        <Methodology />
+        <Services />
 
-        <About />
+        <Methodology />
 
         <Contact />
       </main>
