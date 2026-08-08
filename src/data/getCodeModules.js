@@ -48,7 +48,7 @@ export const getCodeModules = [
   },
   {
     id: "rrhh",
-    name: "RRHH",
+    name: "Gestión de Humana",
     category: "management",
     icon: FiUsers,
     description: "Centraliza información, solicitudes y procesos clave de gestión del talento.",
