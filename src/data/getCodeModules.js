@@ -14,6 +14,7 @@ import {
   FiTarget,
   FiTrendingUp,
   FiTruck,
+  FiAlertOctagon,
   FiUsers,
 } from "react-icons/fi";
 
@@ -38,6 +39,13 @@ export const getCodeModules = [
     category: "management",
     icon: FiCheckCircle,
     description: "Gestiona controles, hallazgos, acciones correctivas y evidencias para asegurar la calidad.",
+  },
+    {
+    id: "Matriz",
+    name: "Matriz de Riesgos",
+    category: "management",
+    icon: FiAlertOctagon,
+    description: "Gestiona la identificación, evaluación y seguimiento de riesgos.",
   },
   {
     id: "compras",
@@ -69,28 +77,28 @@ export const getCodeModules = [
   },
   {
     id: "contable",
-    name: "Módulo Contable",
+    name: "Contabilidad",
     category: "management",
     icon: FiDollarSign,
     description: "Organiza registros contables, movimientos y reportes para un control financiero confiable.",
   },
   {
     id: "Financiero",
-    name: "Módulo de Finanzas",
+    name: "Finanzas",
     category: "management",
     icon: FiChevronsUp,
     description: "Organiza, planifica y controla los recursos financieros de la organización.",
   },
   {
     id: "comercial",
-    name: "Módulo Comercial",
+    name: "Comercial",
     category: "management",
     icon: FiTrendingUp,
     description: "Coordina oportunidades, propuestas y actividades comerciales desde un solo lugar.",
   },
   {
     id: "crm",
-    name: "Módulo CRM",
+    name: "CRM",
     category: "management",
     icon: FiTarget,
     description: "Centraliza clientes, contactos e interacciones para fortalecer cada relación comercial.",
