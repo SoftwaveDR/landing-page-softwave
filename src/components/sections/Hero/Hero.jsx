@@ -14,10 +14,11 @@ import {
 
 import Button from "../../common/Button/Button";
 import Container from "../../common/Container/Container";
+import { getCodeModules } from "../../../data/getCodeModules";
 import "./Hero.css";
 
 const productPillars = [
-  "12 módulos conectados",
+  `${getCodeModules.length} módulos conectados`,
   "Una sola fuente de información",
   "Control por roles y trazabilidad",
 ];

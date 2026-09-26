@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaWhatsapp } from "react-icons/fa";
 import {
   FiArrowRight,
   FiCheck,
@@ -12,6 +13,7 @@ import {
 import Button from "../../common/Button/Button";
 import Container from "../../common/Container/Container";
 import { getCodeModules } from "../../../data/getCodeModules";
+import { CONTACT_EMAIL, WHATSAPP_URL } from "../../../data/contact";
 import "./Contact.css";
 
 const initialForm = {
@@ -53,7 +55,7 @@ function Contact() {
     ].join("\n");
 
     setFormStatus("ready");
-    window.location.href = `mailto:contacto@softwave.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   return (
@@ -75,10 +77,16 @@ function Contact() {
               <article><FiShield /><span><strong>Sin compromiso</strong><small>Primero validamos si Get Code puede aportar valor.</small></span></article>
             </div>
 
-            <a className="contact__email" href="mailto:contacto@softwave.com">
-              <FiMail />
-              <span><small>También puedes escribirnos</small><strong>contacto@softwave.com</strong></span>
-            </a>
+            <div className="contact__channels" aria-label="Canales de contacto directo">
+              <a className="contact__channel" href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+                <FaWhatsapp />
+                <span><small>Respuesta directa</small><strong>Conversar por WhatsApp</strong></span>
+              </a>
+              <a className="contact__channel" href={`mailto:${CONTACT_EMAIL}`}>
+                <FiMail />
+                <span><small>Escríbenos por correo</small><strong>{CONTACT_EMAIL}</strong></span>
+              </a>
+            </div>
           </div>
 
           <div className="contact__form-panel">

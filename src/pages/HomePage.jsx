@@ -6,6 +6,9 @@ import Services from "../components/sections/Services/Services";
 import Solutions from "../components/sections/Solutions/Solutions";
 import Methodology from "../components/sections/Methodology/Methodology";
 import Contact from "../components/sections/Contact/Contact";
+import AddOns from "../components/sections/AddOns/AddOns";
+import Pricing from "../components/sections/Pricing/Pricing";
+import WhatsAppFloat from "../components/common/WhatsAppFloat/WhatsAppFloat";
 
 
 function HomePage() {
@@ -18,6 +21,10 @@ function HomePage() {
 
         <Solutions />
 
+        <AddOns />
+
+        <Pricing />
+
         <Services />
 
         <Methodology />
@@ -26,6 +33,8 @@ function HomePage() {
       </main>
 
       <Footer />
+
+      <WhatsAppFloat />
     </div>
   );
 }

@@ -15,14 +15,14 @@ export const navigationItems = [
     href: "#modulos",
   },
   {
-    id: "servicios",
-    label: "Softwave",
-    href: "#servicios",
+    id: "complementos",
+    label: "Complementos",
+    href: "#complementos",
   },
   {
-    id: "metodologia",
-    label: "Cómo trabajamos",
-    href: "#metodologia",
+    id: "precios",
+    label: "Precios",
+    href: "#precios",
   },
   {
     id: "contacto",

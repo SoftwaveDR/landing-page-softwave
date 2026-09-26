@@ -3,10 +3,12 @@ import {
   FiMail,
   FiMapPin,
 } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 
 import Container from "../../common/Container/Container";
 
 import softwaveLogo from "../../../assets/logos/Logo.png";
+import { CONTACT_EMAIL, WHATSAPP_URL } from "../../../data/contact";
 
 import "./Footer.css";
 
@@ -19,6 +21,14 @@ const footerLinks = [
   {
     label: "Módulos",
     href: "#modulos",
+  },
+  {
+    label: "Complementos",
+    href: "#complementos",
+  },
+  {
+    label: "Precios",
+    href: "#precios",
   },
   {
     label: "Softwave",
@@ -114,7 +124,7 @@ function Footer() {
 
             <div className="footer__contact">
               <a
-                href="mailto:contacto@softwave.com"
+                href={`mailto:${CONTACT_EMAIL}`}
                 className="footer__contact-item"
               >
                 <span
@@ -130,8 +140,24 @@ function Footer() {
                   </small>
 
                   <strong>
-                    contacto@softwave.com
+                    {CONTACT_EMAIL}
                   </strong>
+                </span>
+              </a>
+
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="footer__contact-item"
+              >
+                <span className="footer__contact-icon" aria-hidden="true">
+                  <FaWhatsapp />
+                </span>
+
+                <span>
+                  <small>WhatsApp</small>
+                  <strong>Iniciar conversación</strong>
                 </span>
               </a>
 
