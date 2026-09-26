@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/landing-page-softwave/',
+  base: process.env.GITHUB_ACTIONS === 'true' ? '/landing-page-softwave/' : '/',
 })
