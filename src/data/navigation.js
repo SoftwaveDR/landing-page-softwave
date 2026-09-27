@@ -12,7 +12,7 @@ export const navigationItems = [
   {
     id: "modulos",
     label: "Soluciones",
-    href: "#modulos",
+    href: "/soluciones",
   },
   {
     id: "complementos",

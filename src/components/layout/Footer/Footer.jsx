@@ -21,7 +21,7 @@ const footerLinks = [
   },
   {
     label: "Soluciones",
-    href: "#modulos",
+    href: "/soluciones",
   },
   {
     label: "Complementos",
@@ -45,7 +45,7 @@ const footerLinks = [
 function Footer() {
   const { pathname } = useLocation();
   const isHome = pathname === "/";
-  const homeHref = (href) => isHome ? href : `/${href}`;
+  const homeHref = (href) => href.startsWith("#") ? (isHome ? href : `/${href}`) : href;
   const currentYear = new Date().getFullYear();
 
   return (

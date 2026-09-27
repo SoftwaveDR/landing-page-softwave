@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 import Header from "../components/layout/Header/Header";
 import Footer from "../components/layout/Footer/Footer";
 
@@ -12,6 +15,25 @@ import WhatsAppFloat from "../components/common/WhatsAppFloat/WhatsAppFloat";
 
 
 function HomePage() {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (!hash) return undefined;
+
+    const scrollToTarget = () => {
+      const target = document.getElementById(decodeURIComponent(hash.slice(1)));
+      target?.scrollIntoView({ behavior: "auto", block: "start" });
+    };
+
+    const frame = window.requestAnimationFrame(scrollToTarget);
+    const timeout = window.setTimeout(scrollToTarget, 350);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.clearTimeout(timeout);
+    };
+  }, [hash]);
+
   return (
     <div className="page">
       <Header />

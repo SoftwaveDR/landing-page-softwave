@@ -60,7 +60,7 @@ function Hero() {
             <Button href="#contacto" size="large" icon={<PlayCircleIcon />}>
               Solicitar una demo
             </Button>
-            <Button href="#modulos" variant="outline" size="large" icon={<FiArrowRight />}>
+            <Button href="/soluciones" variant="outline" size="large" icon={<FiArrowRight />}>
               Explorar soluciones
             </Button>
           </div>

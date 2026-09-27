@@ -10,7 +10,7 @@ import "./Header.css";
 function Header() {
   const { pathname } = useLocation();
   const isHome = pathname === "/";
-  const homeHref = (href) => isHome ? href : `/${href}`;
+  const homeHref = (href) => href.startsWith("#") ? (isHome ? href : `/${href}`) : href;
   const [isMenuOpen, setIsMenuOpen] =
     useState(false);
 
@@ -131,6 +131,10 @@ function Header() {
      ========================================================================= */
 
   useEffect(() => {
+    if (!isHome) {
+      return undefined;
+    }
+
     const sectionIds =
       navigationItems
         .map((item) =>
@@ -193,7 +197,7 @@ function Header() {
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [isHome]);
 
 
   /* =========================================================================
@@ -274,8 +278,9 @@ function Header() {
               {navigationItems.map(
                 (item) => {
                   const isActive =
-                    activeSection ===
-                    item.href;
+                    item.href.startsWith("/")
+                      ? pathname === item.href
+                      : isHome && activeSection === item.href;
 
                   return (
                     <li
@@ -298,7 +303,7 @@ function Header() {
                         }
                         aria-current={
                           isActive
-                            ? "page"
+                            ? item.href.startsWith("/") ? "page" : "location"
                             : undefined
                         }
                       >

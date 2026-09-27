@@ -41,7 +41,7 @@ function ModuleDetailPage() {
         <section className="module-hero" id="inicio" aria-labelledby="module-title">
           <Container>
             <nav className="module-breadcrumb" aria-label="Ruta de navegación">
-              <Link to="/"><FiArrowLeft /> Inicio</Link><span>/</span><Link to="/#modulos">Módulos</Link><span>/</span><strong>{module.name}</strong>
+              <Link to="/"><FiArrowLeft /> Inicio</Link><span>/</span><Link to="/soluciones">Soluciones</Link><span>/</span><strong>{module.name}</strong>
             </nav>
 
             <div className="module-hero__grid">
