@@ -14,12 +14,11 @@ import {
 
 import Button from "../../common/Button/Button";
 import Container from "../../common/Container/Container";
-import { getCodeModules } from "../../../data/getCodeModules";
 import "./Hero.css";
 
 const productPillars = [
-  `${getCodeModules.length} módulos conectados`,
-  "Una sola fuente de información",
+  "ERP modular de punta a punta",
+  "6 soluciones empresariales",
   "Control por roles y trazabilidad",
 ];
 
@@ -62,7 +61,7 @@ function Hero() {
               Solicitar una demo
             </Button>
             <Button href="#modulos" variant="outline" size="large" icon={<FiArrowRight />}>
-              Explorar módulos
+              Explorar soluciones
             </Button>
           </div>
 
@@ -157,11 +156,12 @@ function Hero() {
       </Container>
 
       <Container className="hero__module-strip">
-        <span>Una plataforma para</span>
-        <strong>Operaciones</strong><i />
+        <span>ERP completo para</span>
+        <strong>Gestión Humana</strong><i />
+        <strong>Calidad</strong><i />
         <strong>Compras</strong><i />
-        <strong>RRHH</strong><i />
-        <strong>Administración</strong><i />
+        <strong>Comercial</strong><i />
+        <strong>Finanzas</strong><i />
         <strong>Analítica</strong>
       </Container>
     </section>

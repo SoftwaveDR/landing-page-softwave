@@ -11,7 +11,7 @@ export const navigationItems = [
   },
   {
     id: "modulos",
-    label: "Módulos",
+    label: "Soluciones",
     href: "#modulos",
   },
   {

@@ -1,4 +1,3 @@
-import { useMemo, useState } from "react";
 import {
   FiArrowRight,
   FiCheck,
@@ -14,8 +13,7 @@ import {
 
 import Button from "../../common/Button/Button";
 import Container from "../../common/Container/Container";
-import { getCodeCategories, getCodeModules } from "../../../data/getCodeModules";
-import { detailedModuleIds } from "../../../data/moduleDetails";
+import { fullERPPlan, solutionPackages } from "../../../data/solutionPackages";
 import "./Solutions.css";
 
 const platformCapabilities = [
@@ -26,14 +24,6 @@ const platformCapabilities = [
 ];
 
 function Solutions() {
-  const [activeCategory, setActiveCategory] = useState("all");
-  const visibleModules = useMemo(
-    () => activeCategory === "all"
-      ? getCodeModules
-      : getCodeModules.filter((module) => module.category === activeCategory),
-    [activeCategory],
-  );
-
   return (
     <section className="get-code section" id="get-code" aria-labelledby="get-code-title">
       <Container className="get-code__container">
@@ -99,45 +89,49 @@ function Solutions() {
         <div className="modules" id="modulos">
           <div className="modules__heading">
             <div>
-              <span className="get-code__eyebrow">Ecosistema modular</span>
-              <h2>Todos los módulos de Get Code, una sola experiencia.</h2>
+              <span className="get-code__eyebrow">Soluciones empresariales</span>
+              <h2>Un ERP completo, organizado según cómo trabaja tu empresa.</h2>
             </div>
             <p>
-              Comienza por el proceso más crítico y conecta nuevos módulos sin
-              fragmentar la información ni reconstruir tu operación.
+              Contrata una solución por área o activa el ERP completo. Todos los
+              paquetes comparten usuarios, flujos, trazabilidad e información.
             </p>
           </div>
 
-          <div className="modules__toolbar" role="toolbar" aria-label="Filtrar módulos">
-            {getCodeCategories.map((category) => (
-              <button
-                key={category.id}
-                type="button"
-                className={activeCategory === category.id ? "is-active" : ""}
-                onClick={() => setActiveCategory(category.id)}
-                aria-pressed={activeCategory === category.id}
-              >
-                {category.label}
-                {category.id === "all" && <span>{getCodeModules.length}</span>}
-              </button>
-            ))}
-          </div>
+          <article className="erp-overview">
+            <div className="erp-overview__copy">
+              <span>La mirada completa</span>
+              <h3>{fullERPPlan.name}</h3>
+              <p>{fullERPPlan.description}</p>
+              <div className="erp-overview__price"><small>Desde US$</small><strong>{fullERPPlan.price}</strong><span>{fullERPPlan.suffix}</span></div>
+              <Button href="#precios" variant="secondary" icon={<FiArrowRight />}>Comparar planes</Button>
+            </div>
+            <div className="erp-overview__map" aria-label="Áreas conectadas por Get Code ERP">
+              <strong>GET CODE ERP</strong>
+              <div>{fullERPPlan.includes.map((item) => <span key={item}><FiCheck />{item}</span>)}</div>
+            </div>
+          </article>
 
-          <div className="modules__grid" aria-live="polite">
-            {visibleModules.map(({ id, name, icon: Icon, description, category }) => (
-              <article className={`module-card module-card--${category}`} key={id}>
-                <div className="module-card__top">
-                  <span className="module-card__icon"><Icon aria-hidden="true" /></span>
-                  <span className="module-card__state"><i /> Conectado</span>
-                </div>
-                <h3>{name}</h3>
+          <div className="solution-packages" aria-label="Paquetes de soluciones Get Code">
+            {solutionPackages.map(({ id, name, shortName, icon: Icon, price, description, audience, highlight, modules, moduleLinks, benefits }) => (
+              <article className={`solution-package${highlight ? " solution-package--highlight" : ""}`} key={id}>
+                {highlight && <span className="solution-package__badge">{highlight}</span>}
+                <header>
+                  <span className="solution-package__icon"><Icon aria-hidden="true" /></span>
+                  <div><small>{shortName}</small><h3>{name}</h3></div>
+                </header>
                 <p>{description}</p>
-                <a
-                  href={detailedModuleIds.includes(id) ? `/modulos/${id}` : `/?interes=${encodeURIComponent(name)}#contacto`}
-                  aria-label={detailedModuleIds.includes(id) ? `Ver detalles del módulo ${name}` : `Solicitar una demo del módulo ${name}`}
-                >
-                  {detailedModuleIds.includes(id) ? "Conocer solución" : "Ver en una demo"} <FiArrowRight aria-hidden="true" />
-                </a>
+                <span className="solution-package__audience">{audience}</span>
+                <div className="solution-package__modules">
+                  <small>Incluye</small>
+                  <div>{modules.map((module) => <span key={module}>{module}</span>)}</div>
+                </div>
+                <ul>{benefits.map((benefit) => <li key={benefit}><FiCheck />{benefit}</li>)}</ul>
+                <div className="solution-package__footer">
+                  <div><small>Desde US$</small><strong>{price}</strong><span>/mes</span></div>
+                  <Button href={`/?interes=${encodeURIComponent(name)}#contacto`} size="small" icon={<FiArrowRight />}>Solicitar paquete</Button>
+                </div>
+                {moduleLinks.length > 0 && <nav aria-label={`Detalles de ${name}`}>{moduleLinks.map((link) => <a key={link.href} href={link.href}>{link.label}</a>)}</nav>}
               </article>
             ))}
           </div>

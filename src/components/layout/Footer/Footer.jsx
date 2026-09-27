@@ -20,7 +20,7 @@ const footerLinks = [
     href: "#get-code",
   },
   {
-    label: "Módulos",
+    label: "Soluciones",
     href: "#modulos",
   },
   {

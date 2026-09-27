@@ -15,6 +15,11 @@ import Button from "../../common/Button/Button";
 import Container from "../../common/Container/Container";
 import { getCodeModules } from "../../../data/getCodeModules";
 import { CONTACT_EMAIL, WHATSAPP_URL } from "../../../data/contact";
+import {
+  fullERPPlan,
+  individualModulePlan,
+  solutionPackages,
+} from "../../../data/solutionPackages";
 import "./Contact.css";
 
 const initialForm = {
@@ -29,9 +34,17 @@ const initialForm = {
 function Contact() {
   const [searchParams] = useSearchParams();
   const requestedModule = searchParams.get("interes");
-  const initialInterest = getCodeModules.some((module) => module.name === requestedModule)
-    ? `Módulo de ${requestedModule}`
-    : initialForm.interest;
+  const packageInterests = [
+    fullERPPlan.name,
+    ...solutionPackages.map((solutionPackage) => solutionPackage.name),
+    individualModulePlan.name,
+  ];
+  const moduleInterest = getCodeModules.find((module) => module.name === requestedModule);
+  const initialInterest = packageInterests.includes(requestedModule)
+    ? requestedModule
+    : moduleInterest
+      ? `Módulo de ${moduleInterest.name}`
+      : initialForm.interest;
   const [formData, setFormData] = useState(() => ({ ...initialForm, interest: initialInterest }));
   const [formStatus, setFormStatus] = useState("idle");
 
@@ -128,7 +141,16 @@ function Contact() {
                 <span>¿Qué quieres explorar?</span>
                 <select name="interest" value={formData.interest} onChange={handleChange}>
                   <option>Demo general de Get Code</option>
-                  {getCodeModules.map((module) => <option key={module.id}>Módulo de {module.name}</option>)}
+                  <optgroup label="ERP y soluciones por área">
+                    <option>{fullERPPlan.name}</option>
+                    {solutionPackages.map((solutionPackage) => (
+                      <option key={solutionPackage.id}>{solutionPackage.name}</option>
+                    ))}
+                    <option>{individualModulePlan.name}</option>
+                  </optgroup>
+                  <optgroup label="Módulos individuales">
+                    {getCodeModules.map((module) => <option key={module.id}>Módulo de {module.name}</option>)}
+                  </optgroup>
                   <option>Integración o personalización</option>
                 </select>
               </label>

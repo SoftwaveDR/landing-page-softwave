@@ -1,69 +1,61 @@
-import { FiArrowRight, FiCheck } from "react-icons/fi";
+import { FiArrowRight, FiCheck, FiGrid } from "react-icons/fi";
 
 import Button from "../../common/Button/Button";
 import Container from "../../common/Container/Container";
+import { fullERPPlan, individualModulePlan, solutionPackages } from "../../../data/solutionPackages";
 import "./Pricing.css";
-
-const plans = [
-  {
-    name: "Esencial",
-    description: "Para equipos que quieren digitalizar su primer proceso.",
-    price: "99",
-    suffix: "/mes",
-    features: ["Hasta 5 usuarios", "1 módulo operativo", "Flujos y aprobaciones", "Soporte por correo"],
-    cta: "Solicitar plan Esencial",
-  },
-  {
-    name: "Profesional",
-    description: "Para operaciones que necesitan conectar áreas y ganar visibilidad.",
-    price: "249",
-    suffix: "/mes",
-    featured: true,
-    features: ["Hasta 20 usuarios", "Hasta 4 módulos", "Dashboards y KPIs", "Automatizaciones base", "Soporte prioritario"],
-    cta: "Solicitar plan Profesional",
-  },
-  {
-    name: "Empresarial",
-    description: "Para organizaciones con procesos, integraciones y gobierno a medida.",
-    price: "A medida",
-    suffix: "",
-    features: ["Usuarios y módulos según alcance", "Integraciones empresariales", "Analítica personalizada", "Acompañamiento dedicado"],
-    cta: "Cotizar solución",
-  },
-];
 
 function Pricing() {
   return (
     <section className="pricing section" id="precios" aria-labelledby="pricing-title">
       <Container>
         <header className="pricing__header">
-          <span>Planes y precios</span>
-          <h2 id="pricing-title">Una inversión clara para empezar y crecer.</h2>
-          <p>Precios referenciales en dólares. La propuesta final depende de módulos, usuarios, implementación y complementos seleccionados.</p>
+          <span>Precios por solución</span>
+          <h2 id="pricing-title">Comienza por un módulo, combina paquetes o activa el ERP completo.</h2>
+          <p>Precios mensuales referenciales en dólares. La propuesta final depende de usuarios, implementación, integraciones y alcance funcional.</p>
         </header>
 
-        <div className="pricing__grid">
-          {plans.map(({ name, description, price, suffix, featured, features, cta }) => (
-            <article className={`pricing-card${featured ? " pricing-card--featured" : ""}`} key={name}>
-              {featured && <span className="pricing-card__badge">Más elegido</span>}
-              <div className="pricing-card__heading">
-                <h3>{name}</h3>
-                <p>{description}</p>
-              </div>
-              <div className="pricing-card__price">
-                {price !== "A medida" && <small>Desde US$</small>}
-                <strong>{price}</strong>
-                {suffix && <span>{suffix}</span>}
-              </div>
-              <ul>
-                {features.map((feature) => <li key={feature}><FiCheck aria-hidden="true" />{feature}</li>)}
-              </ul>
-              <Button href="#contacto" variant={featured ? "primary" : "outline"} icon={<FiArrowRight />}>{cta}</Button>
+        <article className="pricing-erp">
+          <div className="pricing-erp__heading">
+            <span>Mayor cobertura</span>
+            <h3>{fullERPPlan.name}</h3>
+            <p>{fullERPPlan.description}</p>
+          </div>
+          <div className="pricing-erp__features">
+            {fullERPPlan.features.map((feature) => <span key={feature}><FiCheck />{feature}</span>)}
+          </div>
+          <div className="pricing-erp__action">
+            <small>Desde US$</small><strong>{fullERPPlan.price}</strong><span>{fullERPPlan.suffix}</span>
+            <Button href={`/?interes=${encodeURIComponent(fullERPPlan.name)}#contacto`} variant="secondary" icon={<FiArrowRight />}>Cotizar ERP completo</Button>
+          </div>
+        </article>
+
+        <div className="pricing__subheading">
+          <div><span>Paquetes por área</span><h3>Precios claros para cada solución.</h3></div>
+          <p>Todos los paquetes comparten la misma base tecnológica y pueden conectarse sin duplicar información.</p>
+        </div>
+
+        <div className="pricing-packages">
+          {solutionPackages.map(({ id, name, icon: Icon, price, description, modules, highlight }) => (
+            <article className={`pricing-package${highlight ? " pricing-package--featured" : ""}`} key={id}>
+              {highlight && <span className="pricing-package__badge">Ideal para agencias de viajes</span>}
+              <header><Icon /><div><h3>{name}</h3><p>{description}</p></div></header>
+              <div className="pricing-package__price"><small>Desde US$</small><strong>{price}</strong><span>/mes</span></div>
+              <ul>{modules.slice(0, 5).map((module) => <li key={module}><FiCheck />{module}</li>)}</ul>
+              <Button href={`/?interes=${encodeURIComponent(name)}#contacto`} variant={highlight ? "primary" : "outline"} icon={<FiArrowRight />}>Solicitar este paquete</Button>
             </article>
           ))}
         </div>
 
-        <p className="pricing__note">La implementación inicial y desarrollos especiales se cotizan por separado después de revisar tu operación.</p>
+        <article className="pricing-individual">
+          <FiGrid />
+          <div><span>También puedes comenzar con uno</span><h3>{individualModulePlan.name}</h3><p>{individualModulePlan.description}</p></div>
+          <ul>{individualModulePlan.features.map((feature) => <li key={feature}><FiCheck />{feature}</li>)}</ul>
+          <div><small>Desde US$</small><strong>{individualModulePlan.price}</strong><span>{individualModulePlan.suffix}</span></div>
+          <Button href="/?interes=Módulo%20individual#contacto" variant="outline" icon={<FiArrowRight />}>Elegir módulo</Button>
+        </article>
+
+        <p className="pricing__note">La implementación inicial, impuestos, almacenamiento extraordinario y desarrollos especiales se cotizan por separado.</p>
       </Container>
     </section>
   );
