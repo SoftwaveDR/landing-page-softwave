@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { FiArrowUpRight, FiMenu, FiX,} from "react-icons/fi";
 import Button from "../../common/Button/Button";
 import Container from "../../common/Container/Container";
@@ -7,6 +8,9 @@ import softwaveLogo from "../../../assets/logos/Logo.png";
 import "./Header.css";
 
 function Header() {
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
+  const homeHref = (href) => isHome ? href : `/${href}`;
   const [isMenuOpen, setIsMenuOpen] =
     useState(false);
 
@@ -237,7 +241,7 @@ function Header() {
         {/* BRAND */}
 
         <a
-          href="#inicio"
+          href={homeHref("#inicio")}
           className="header__brand"
           onClick={closeMenu}
           aria-label="Softwave - Ir al inicio"
@@ -279,7 +283,7 @@ function Header() {
                       className="header__navigation-item"
                     >
                       <a
-                        href={item.href}
+                        href={homeHref(item.href)}
                         className={[
                           "header__navigation-link",
 
@@ -317,7 +321,7 @@ function Header() {
               </span>
 
               <Button
-                href="#contacto"
+                href={homeHref("#contacto")}
                 variant="primary"
                 size="large"
                 icon={
@@ -336,7 +340,7 @@ function Header() {
 
         <div className="header__desktop-action">
           <Button
-            href="#contacto"
+            href={homeHref("#contacto")}
             variant="primary"
             size="small"
             icon={

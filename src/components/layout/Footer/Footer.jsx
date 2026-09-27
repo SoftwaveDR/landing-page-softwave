@@ -4,6 +4,7 @@ import {
   FiMapPin,
 } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
+import { useLocation } from "react-router-dom";
 
 import Container from "../../common/Container/Container";
 
@@ -42,6 +43,9 @@ const footerLinks = [
 
 
 function Footer() {
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
+  const homeHref = (href) => isHome ? href : `/${href}`;
   const currentYear = new Date().getFullYear();
 
   return (
@@ -57,7 +61,7 @@ function Footer() {
 
           <div className="footer__brand">
             <a
-              href="#inicio"
+              href={homeHref("#inicio")}
               className="footer__logo-link"
               aria-label="Softwave - Ir al inicio"
             >
@@ -75,7 +79,7 @@ function Footer() {
             </p>
 
             <a
-              href="#contacto"
+              href={homeHref("#contacto")}
               className="footer__primary-link"
             >
               <span>
@@ -103,7 +107,7 @@ function Footer() {
               <ul>
                 {footerLinks.map((link) => (
                   <li key={link.href}>
-                    <a href={link.href}>
+                    <a href={homeHref(link.href)}>
                       {link.label}
                     </a>
                   </li>
@@ -235,7 +239,7 @@ function Footer() {
           </p>
 
           <div className="footer__bottom-links">
-            <a href="#inicio">
+            <a href={homeHref("#inicio")}>
               Inicio
             </a>
 
@@ -243,7 +247,7 @@ function Footer() {
               •
             </span>
 
-            <a href="#contacto">
+            <a href={homeHref("#contacto")}>
               Contacto
             </a>
           </div>

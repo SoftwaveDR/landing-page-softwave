@@ -15,6 +15,7 @@ import {
 import Button from "../../common/Button/Button";
 import Container from "../../common/Container/Container";
 import { getCodeCategories, getCodeModules } from "../../../data/getCodeModules";
+import { detailedModuleIds } from "../../../data/moduleDetails";
 import "./Solutions.css";
 
 const platformCapabilities = [
@@ -131,8 +132,11 @@ function Solutions() {
                 </div>
                 <h3>{name}</h3>
                 <p>{description}</p>
-                <a href="#contacto" aria-label={`Solicitar una demo del módulo ${name}`}>
-                  Ver en una demo <FiArrowRight aria-hidden="true" />
+                <a
+                  href={detailedModuleIds.includes(id) ? `/modulos/${id}` : `/?interes=${encodeURIComponent(name)}#contacto`}
+                  aria-label={detailedModuleIds.includes(id) ? `Ver detalles del módulo ${name}` : `Solicitar una demo del módulo ${name}`}
+                >
+                  {detailedModuleIds.includes(id) ? "Conocer solución" : "Ver en una demo"} <FiArrowRight aria-hidden="true" />
                 </a>
               </article>
             ))}

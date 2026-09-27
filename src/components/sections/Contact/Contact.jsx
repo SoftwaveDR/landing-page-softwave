@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { FaWhatsapp } from "react-icons/fa";
 import {
   FiArrowRight,
@@ -26,7 +27,12 @@ const initialForm = {
 };
 
 function Contact() {
-  const [formData, setFormData] = useState(initialForm);
+  const [searchParams] = useSearchParams();
+  const requestedModule = searchParams.get("interes");
+  const initialInterest = getCodeModules.some((module) => module.name === requestedModule)
+    ? `Módulo de ${requestedModule}`
+    : initialForm.interest;
+  const [formData, setFormData] = useState(() => ({ ...initialForm, interest: initialInterest }));
   const [formStatus, setFormStatus] = useState("idle");
 
   const handleChange = ({ target: { name, value } }) => {
